@@ -20,7 +20,6 @@ require '../configs/router.php';
         Autoloader::register();
 
         ?>
-        <!-- ---------- -->
 
         <!-- Import du header -->
         <?php
@@ -28,11 +27,9 @@ require '../configs/router.php';
         require '../app/views/templates/header.php';
 
         ?>
-        <!-- ---------------- -->
 
 
         <!-- Import du corps -->
-
         <?php
 
         if ($p === 'accueil') {
@@ -46,9 +43,6 @@ require '../configs/router.php';
         }
 
         ?>
-
-        <!-- --------------- -->
-
 
 
         <script src="../public/assets/js/jquery-3.1.1.min.js"></script>

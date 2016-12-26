@@ -1,4 +1,5 @@
 <?php
+
 try {
     $dbh = new PDO('mysql:host=localhost;', "root", "");    
 } catch (PDOException $e) {
