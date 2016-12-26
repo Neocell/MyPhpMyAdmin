@@ -19,9 +19,9 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Accueil</a></li>
-                        <li><a href="bdd.html">Base de données</a></li>
-                        <li><a href="sql.html">SQL</a></li>
+                        <li class="active"><a href="index.php">Accueil</a></li>
+                        <li><a href="bdd.php">Base de données</a></li>
+                        <li><a href="sql.php">SQL</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
