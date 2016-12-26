@@ -43,7 +43,7 @@ require '../configs/router.php';
 
 
 
-        <script src="js/jquery-3.1.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="../public/assets/js/jquery-3.1.1.min.js"></script>
+        <script src="../public/assets/js/bootstrap.min.js"></script>
     </body>
 </html>
