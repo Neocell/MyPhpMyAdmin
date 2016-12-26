@@ -1,9 +1,17 @@
+<?php
+
+require '../configs/router.php';
+
+?>
+
+
+
 <!Doctype html>
 <html>
     <head>
         <meta charset="utf-8">
         <title></title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="../public/assets/css/bootstrap.min.css">
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -27,15 +35,11 @@
             </div>
         </nav>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center" style="margin-top: 200px;">
-                    <img alt="logo_phpmyadmin" src="images/logo_accueil.png">
-                </div>
-            </div>
-
-        </div>
-
+        <?php
+        if ($p === 'accueil') {
+            require '../app/views/accueil.php';
+        }
+        ?>
 
         <script src="js/jquery-3.1.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
