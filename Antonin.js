@@ -1,0 +1,1 @@
+console.log('Il est beau comme Patrick');
