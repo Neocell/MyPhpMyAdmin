@@ -35,6 +35,8 @@ require '../configs/router.php';
             require '../app/views/bdd.php';
         } else if ($p === 'sql') {
             require '../app/views/sql.php';
+        } else {
+            require '../app/views/404.php';
         }
 
         ?>
