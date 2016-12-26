@@ -1,10 +1,8 @@
 <?php
+use \ARG\Autoloader;
 
 require '../configs/router.php';
-
 ?>
-
-
 
 <!Doctype html>
 <html>
@@ -14,14 +12,22 @@ require '../configs/router.php';
         <link rel="stylesheet" href="../public/assets/css/bootstrap.min.css">
     </head>
     <body>
-        <!-- Import du header -->
 
+        <!-- Autoloader -->
         <?php
-        
-        require '../app/views/templates/header.php';
-        
-        ?>
 
+        require '../app/class/Autoloader.php';
+        Autoloader::register();
+
+        ?>
+        <!-- ---------- -->
+
+        <!-- Import du header -->
+        <?php
+
+        require '../app/views/templates/header.php';
+
+        ?>
         <!-- ---------------- -->
 
 
