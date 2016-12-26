@@ -1,2 +1,1 @@
 # citrusrequest
-A phpmyadmin application
