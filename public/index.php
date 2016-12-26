@@ -1,7 +1,7 @@
 <?php
-use \ARG\Autoloader;
-
 require '../configs/router.php';
+
+use \ARG\Autoloader;
 ?>
 
 <!Doctype html>
@@ -35,7 +35,7 @@ require '../configs/router.php';
         if ($p === 'accueil') {
             require '../app/views/accueil.php';
         } else if ($p === 'bdd') {
-            require '../app/views/bdd.php';
+            require '../app/views/listBDDs.php';
         } else if ($p === 'sql') {
             require '../app/views/sql.php';
         } else {
