@@ -10,7 +10,7 @@ use ARG\App;
 <html>
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>myPhpMyAdmin</title>
         <link rel="stylesheet" href="../public/assets/css/bootstrap.min.css">
         <script src="../public/assets/js/jquery-3.1.1.min.js"></script>
     </head>
