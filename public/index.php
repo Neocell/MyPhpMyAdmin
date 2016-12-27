@@ -35,7 +35,7 @@ use \ARG\Autoloader;
         if ($p === 'accueil') {
             require '../app/views/accueil.php';
         } else if ($p === 'bdd') {
-            require '../app/views/listBDDs.php';
+            require '../app/views/BDDs/index.php';
         } else if ($p === 'sql') {
             require '../app/views/sql.php';
         } else {

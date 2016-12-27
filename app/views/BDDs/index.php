@@ -1,24 +1,3 @@
-<?php
-
-try {
-    $dbh = new PDO('mysql:host=localhost;', "root", "");    
-} catch (PDOException $e) {
-    print "Erreur !: " . $e->getMessage() . "<br/>";
-    die();
-}
-
-class Database
-{
-    private $Database;
-    
-    public function get_database()
-    {
-        return $this->Database;
-    }
-}
-
-?>
-
 <div class="container">
     <div class="row">
         <div class="panel panel-default">
@@ -32,11 +11,12 @@ class Database
                             <td colspan="3"  class="text-center"><span class="glyphicon glyphicon-plus"></td>
                         </tr>
                         <?php
-                        $databases = $dbh->query('SHOW DATABASES')->fetchAll(PDO::FETCH_CLASS, 'Database');
-                        foreach($databases as $database)
+                        $databases = new \ARG\Database;
+                        $datas = $databases->query('SHOW DATABASES');
+                        foreach($datas as $data)
                         {
                             echo '<tr>';
-                            echo '<td>' . $database->get_database() . '</td>';
+                            echo '<td>' . $data . '</td>';
                             echo '<td class="text-center"><span class="glyphicon glyphicon-pencil rename"></span></td>';
                             echo '<td class="text-center"><span class="glyphicon glyphicon-trash remove"></span></td>';
                             echo '<tr>';
@@ -46,6 +26,7 @@ class Database
                 </table>
             </div>
         </div>
+        <?php require '/../sql.php'; ?>
     </div>
 
 </div>
