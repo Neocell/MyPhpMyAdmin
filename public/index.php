@@ -1,7 +1,9 @@
 <?php
 require '../configs/router.php';
 
-use \ARG\Autoloader;
+use ARG\Controller\BDDsController;
+use ARG\Controller\PagesController;
+use ARG\App;
 ?>
 
 <!Doctype html>
@@ -16,8 +18,8 @@ use \ARG\Autoloader;
         <!-- Autoloader -->
         <?php
 
-        require '../app/class/Autoloader.php';
-        Autoloader::register();
+        require '../app/App.php';
+        App::ARGload();
 
         ?>
 
@@ -32,12 +34,16 @@ use \ARG\Autoloader;
         <!-- Import du corps -->
         <?php
 
+        require '../app/Controller/BDDsController.php';
+
         if ($p === 'accueil') {
-            require '../app/views/accueil.php';
+            $controller = new PagesController();
+            $controller->index();
         } else if ($p === 'bdd') {
-            require '../app/views/BDDs/index.php';
+            $controller = new BDDsController();
+            $controller->index();
         } else if ($p === 'sql') {
-            require '../app/views/sql.php';
+            require '../app/views/BDDs/sql.php';
         } else {
             require '../app/views/404.php';
         }

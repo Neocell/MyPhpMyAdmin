@@ -1,6 +1,6 @@
 <?php
 
-namespace ARG;
+namespace ARG\Object;
 
 use \PDO;
 

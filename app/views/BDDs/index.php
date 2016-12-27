@@ -11,9 +11,7 @@
                             <td colspan="3"  class="text-center"><span class="glyphicon glyphicon-plus"></td>
                         </tr>
                         <?php
-                        $databases = new \ARG\Database;
-                        $datas = $databases->query('SHOW DATABASES');
-                        foreach($datas as $data)
+                        foreach($databases as $data)
                         {
                             echo '<tr>';
                             echo '<td>' . $data . '</td>';
@@ -26,7 +24,7 @@
                 </table>
             </div>
         </div>
-        <?php require '/../sql.php'; ?>
+        <?php require 'sql.php'; ?>
     </div>
 
 </div>
