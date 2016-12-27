@@ -21,8 +21,8 @@
                         {
                             echo '<tr>';
                             echo '<td onclick="unebdd(\''. $data .'\')">' . $data . '</td>';
-                            echo '<td class="text-center"><span class="glyphicon glyphicon-pencil rename"></span></td>';
-                            echo '<td class="text-center"><span class="glyphicon glyphicon-trash remove"></span></td>';
+                            echo '<td class="text-center"><span title="Renommer la base de donnée" class="glyphicon glyphicon-pencil rename"></span></td>';
+                            echo '<td class="text-center"><span title="Supprimer la base de donnée" class="glyphicon glyphicon-trash remove"></span></td>';
                             echo '<tr>';
                         }
                         ?>

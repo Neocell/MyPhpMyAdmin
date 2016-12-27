@@ -97,11 +97,11 @@ $arr3 = $dbh->query($query3)->fetch();
                     foreach($tables as $table)
                     {
                         echo '<tr data-database="' . $table->get_name() . '">';
-                        echo '<td>' . $table->get_name() . '</td>';
+                        echo '<td title="Acceder au contenu">' . $table->get_name() . '</td>';
                         echo '<td class="text-center"><span title="Acceder au contenu" class="glyphicon glyphicon-list-alt"></span></td>';
                         echo '<td class="text-center"><span title="Acceder à la structure" class="glyphicon glyphicon-list"></span></td>';
-                        echo '<td class="text-center"><span class="glyphicon glyphicon-pencil rename"></span></td>';
-                        echo '<td class="text-center"><span class="glyphicon glyphicon-trash remove"></span></td>';
+                        echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
+                        echo '<td class="text-center"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></td>';
                         echo '<tr>';
                     }
                         ?>
