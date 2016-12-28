@@ -43,8 +43,9 @@ use ARG\App;
         } else if ($p === 'bdd') {
             $controller = new BDDsController();
             $controller->index();
-        } else if ($p === 'unebdd') {                  // <- Temporaire
-            require '../app/views/BDDs/unebdd.php';       // <-
+        } else if ($p === 'bddshow') {                  
+            $controller = new BDDsController();
+            $controller->show($_GET['bdd']);
         } else if ($p === 'sql') {
             require '../app/views/BDDs/sql.php';
         } else if ($p === 'unetablecontent') {

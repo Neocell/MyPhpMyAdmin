@@ -19,7 +19,7 @@
                         foreach($databases as $data)
                         {
                             echo '<tr>';
-                            echo '<td style="padding: 0px;"><a title="Accéder à la base de donnée" style="padding: 8px; display: block;" href="index.php?p=unebdd&bdd='. $data .'">' . $data . '</a></td>';
+                            echo '<td style="padding: 0px;"><a title="Accéder à la base de donnée" style="padding: 8px; display: block;" href="index.php?p=bddshow&bdd='. $data .'">' . $data . '</a></td>';
                             echo '<td class="text-center"><a style="color:black;" onclick=\'renameBDD("'.$data.'")\' data-toggle="modal" href="#myModalRename"><span title="Renommer la base de donnée" class="glyphicon glyphicon-pencil rename"></span></a></td>';
                             echo '<td class="text-center"><a style="color:black;" onclick=\'removeBDD("'.$data.'")\' data-toggle="modal" href="#myModalRemove"><span title="Supprimer la base de donnée" class="glyphicon glyphicon-trash remove"></span></a></td>';
                             echo '<tr>';

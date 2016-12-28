@@ -43,6 +43,15 @@ class Database
         return $datas;
     }
 
+    /**
+     * @param $statement Contient la query à préparé.
+     * @return void
+     */
+    public function prepare($statement) {
+        $req = $this->getPDO()->prepare($statement);
+        $req->execute();
+    }
+
 }
 
 ?>
