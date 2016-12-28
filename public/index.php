@@ -10,8 +10,9 @@ use ARG\App;
 <html>
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>myPhpMyAdmin</title>
         <link rel="stylesheet" href="../public/assets/css/bootstrap.min.css">
+        <script src="../public/assets/js/jquery-3.1.1.min.js"></script>
     </head>
     <body>
 
@@ -42,6 +43,8 @@ use ARG\App;
         } else if ($p === 'bdd') {
             $controller = new BDDsController();
             $controller->index();
+        } else if ($p === 'unebdd') {                  // <- Temporaire
+            require '../app/views/BDDs/unebdd.php';       // <-
         } else if ($p === 'sql') {
             require '../app/views/BDDs/sql.php';
         } else {
@@ -51,7 +54,7 @@ use ARG\App;
         ?>
 
 
-        <script src="../public/assets/js/jquery-3.1.1.min.js"></script>
+
         <script src="../public/assets/js/bootstrap.min.js"></script>
     </body>
 </html>
