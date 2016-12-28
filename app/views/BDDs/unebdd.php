@@ -47,7 +47,6 @@ $arr3 = $dbh->query($query3)->fetch();
 <style type="text/css">
     .glyphicon:hover { cursor: pointer; }
     .clickable: hover { cursor: pointer; }
-    tr td:first-child:hover {cursor: pointer; }
 </style>
 <div class="container" style=" margin-bottom: 25px;">
     <div class="row">
@@ -96,8 +95,8 @@ $arr3 = $dbh->query($query3)->fetch();
 
                     foreach($tables as $table)
                     {
-                        echo '<tr data-database="' . $table->get_name() . '">';
-                        echo '<td title="Acceder au contenu">' . $table->get_name() . '</td>';
+                        echo '<tr>';
+                        echo '<td style="padding: 0px;"><a title="Acceder au contenu" style="padding: 8px; display: block;" href="#">' . $table->get_name() . '</a></td>';
                         echo '<td class="text-center"><span title="Acceder au contenu" class="glyphicon glyphicon-list-alt"></span></td>';
                         echo '<td class="text-center"><span title="Acceder à la structure" class="glyphicon glyphicon-list"></span></td>';
                         echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
