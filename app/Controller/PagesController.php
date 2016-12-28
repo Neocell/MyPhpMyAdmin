@@ -9,6 +9,10 @@ use ARG\App;
  */
 class PagesController extends AppController {
 
+    /**
+     * Function qui permet de rendre la vue accueil.php
+     * @return void
+     */
     public function index() {
         $this->render('Pages.accueil');
     }

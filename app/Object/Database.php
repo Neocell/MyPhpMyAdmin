@@ -4,10 +4,20 @@ namespace ARG\Object;
 
 use \PDO;
 
+/**
+ * Class Database 
+ * Class qui permet une connection à MySQL afin de manipuler les bases de données.
+ */
 class Database
 {
+    /**
+     * @var PDO $pdo | Variable contenant l'objet PDO pour ce connecter à MySQL.
+     */
     private $pdo;
 
+    /**
+     * @return PDO
+     */
     private function getPDO() {
         if ($this->pdo === NULL) {
             try {
@@ -23,6 +33,10 @@ class Database
         return $this->pdo;
     }
     
+    /**
+     * @param $statement Contient la query à exécuter.
+     * @return $datas Résultat(s) de la requête.
+     */
     public function query($statement) {
         $req = $this->getPDO()->query($statement);
         $datas = $req->fetchAll(PDO::FETCH_COLUMN);

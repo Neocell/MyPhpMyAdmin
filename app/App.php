@@ -3,10 +3,21 @@
 namespace ARG;
 use ARG\Object\Database;
 
+/**
+ * Class App
+ * Class qui ne contient que des function static qui permet d'être appeller dans toute l'application.
+ */
 class App
 {
+    /**
+     * @var Database $database | Variable contenant l'objet Database.
+     */
     private static $database;
 
+    /**
+     * Function qui permet de charger/d'initialiser la variable static $database.
+     * @return Database $database 
+     */
     public static function getDB() {
         if (self::$database === NULL) {
             self::$database = new Database;
@@ -14,6 +25,10 @@ class App
         return self::$database;
     }
 
+    /**
+     * Function qui permet de charger les autoloaders de l'application.
+     * @return void
+     */
     public static function ARGload() {
         require 'Autoloader.php';
         \ARG\Autoloader::register();
