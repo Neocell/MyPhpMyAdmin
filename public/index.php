@@ -45,7 +45,7 @@ use ARG\App;
         } else if ($p === 'sql') {
             require '../app/views/BDDs/sql.php';
         } else {
-            require '../app/views/404.php';
+            require '../app/views/Pages/404.php';
         }
 
         ?>
