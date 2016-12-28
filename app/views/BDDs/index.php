@@ -19,9 +19,9 @@
                         foreach($databases as $data)
                         {
                             echo '<tr>';
-                            echo '<td style="padding: 0px;"><a  title="Accéder à la base de donnée" style="padding: 8px; display: block;" href="index.php?p=unebdd&bdd='. $data .'">' . $data . '</a></td>';
-                            echo '<td class="text-center"><span title="Renommer la base de donnée" class="glyphicon glyphicon-pencil rename"></span></td>';
-                            echo '<td class="text-center"><span title="Supprimer la base de donnée" class="glyphicon glyphicon-trash remove"></span></td>';
+                            echo '<td style="padding: 0px;"><a title="Accéder à la base de donnée" style="padding: 8px; display: block;" href="index.php?p=unebdd&bdd='. $data .'">' . $data . '</a></td>';
+                            echo '<td class="text-center"><a style="color:black;" onclick=\'renameBDD("'.$data.'")\' data-toggle="modal" href="#myModalRename"><span title="Renommer la base de donnée" class="glyphicon glyphicon-pencil rename"></span></a></td>';
+                            echo '<td class="text-center"><a style="color:black;" onclick=\'removeBDD("'.$data.'")\' data-toggle="modal" href="#myModalRemove"><span title="Supprimer la base de donnée" class="glyphicon glyphicon-trash remove"></span></a></td>';
                             echo '<tr>';
                         }
                         ?>
@@ -33,11 +33,86 @@
     </div>
 </div>
 
+<!-- Modal edit name bdd -->
+<div class="modal fade" id="myModalRename">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="#">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Renommage d'une Base de donnée</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Insérer le nouveau nom de la Base de donnée <strong id="databaseRename">{name}</strong> :</p>
+                    <div class="form-group">
+                        <input type="text" style="width:100%;" name="nouveauNom">
+                    </div>
+                </div>
+                <div>
+                    <input type="hidden" name="bddname" value="" id="databaseRenameInput">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal">Renommer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+<!-- Modal remove bdd -->
+<div class="modal fade" id="myModalRemove">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="#">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Suppression d'une Base de donnée</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Voulez vous vraiment supprimer la base de donnée <strong id="databaseRemove">{name}</strong></p>
+                </div>
+                <div>
+                    <input type="hidden" name="bddname" value="" id="databaseRemoveInput">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal">Supprimer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
 <script>
 
-    function unebdd(e) {
-        window.location = "index.php?p=unebdd&bdd="+e;
+
+    function removeBDD(database)
+    {
+        console.log(database);
+        document.getElementById("databaseRemove").innerHTML = database;
+        document.getElementById("databaseRemoveInput").value = database;
+
     }
+
+    function renameBDD(database)
+    {
+        console.log(database);
+        document.getElementById("databaseRename").innerHTML = database;
+        document.getElementById("databaseRenameInput").value = database;
+
+    }
+
+
 
     //Permet d'ouvrir ou fermer un panel
     $(document).on('click', 'span.clickable', function(e){
