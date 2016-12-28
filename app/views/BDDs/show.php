@@ -20,9 +20,9 @@
                     </thead>
                     <tbody>
                         <tr class="text-center">
-                            <td><?= $arr[0] ?></td>
+                            <td><?= $nb_tables[0] ?></td>
                             <td>2</td>
-                            <td>~ <?= $arr2[0] ?></td>
+                            <td>~ <?= $ms_tables[0] ?></td>
                         </tr>
                 </table>
             </div>

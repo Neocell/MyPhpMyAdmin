@@ -2,6 +2,7 @@
 
 namespace ARG;
 use ARG\Object\Database;
+use ARG\Models\BDDModel;
 
 /**
  * Class App
@@ -12,7 +13,7 @@ class App
     /**
      * @var Database $database | Variable contenant l'objet Database.
      */
-    private static $database;
+    private static $database, $api;
 
     /**
      * Function qui permet de charger/d'initialiser la variable static $database.
@@ -23,6 +24,17 @@ class App
             self::$database = new Database;
         }
         return self::$database;
+    }
+
+    /**
+     * Function qui permet de charger/d'initialiser la variable static $api.
+     * @return BDDModel $api 
+     */
+    public static function getAPI() {
+        if (self::$api === NULL) {
+            self::$api = new BDDModel;
+        }
+        return self::$api;
     }
 
     /**
