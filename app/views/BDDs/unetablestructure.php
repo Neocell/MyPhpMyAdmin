@@ -13,14 +13,16 @@ try {
 
 $bdd = $_GET['bdd'];
 
+$table = $_GET['table'];
+
 ?>
 
 <?php
 
-class Table {
+class Ligne {
     private $Name;
 
-    function __set($prop, $value) { }
+    //function __set($prop, $value) { }
 
     public function get_name()
     {
@@ -33,14 +35,6 @@ class Table {
 <?php
 $query = 'SELECT COUNT(*) as nbr_Table FROM information_schema.tables WHERE table_schema = \''.$bdd.'\'';
 $arr = $dbh->query($query)->fetch();
-//var_dump($arr);
-$query2 = 'SELECT Round(Sum(data_length + index_length) / 1024 / 1024, 1) FROM information_schema.tables WHERE table_schema = \''.$bdd.'\' GROUP BY table_schema; ';
-$arr2 = $dbh->query($query2)->fetch();
-//var_dump($arr2);
-
-$query3 ='SELECT TABLE_SCHEMA, CREATE_TIME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = \''. $bdd .'\';';
-$arr3 = $dbh->query($query3)->fetch();
-//var_dump($arr3);
 
 ?>
 
@@ -48,27 +42,36 @@ $arr3 = $dbh->query($query3)->fetch();
     .glyphicon:hover { cursor: pointer; }
     .clickable: hover { cursor: pointer; }
 </style>
+
 <div class="container" style=" margin-bottom: 25px;">
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading" >
-                <h3 class="panel-title" style="width:90%">Information de la base de donnée <strong><?=$bdd ?></strong></h3>
+                <h3 class="panel-title" style="width:90%"><strong><?=$bdd ?> > <?=$table ?></strong></h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" style=" margin-bottom: 25px;">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading" >
+                <h3 class="panel-title" style="width:90%">Information de la table <strong><?=$table ?></strong></h3>
                 <span class="pull-right clickable panel-collapsed" style="margin-top: -20px"><i class="glyphicon glyphicon-chevron-down"></i></span>
             </div>
             <div class="panel-body" style="display: none;">
                 <table class="table table-bordered table-striped table-hover">
                     <thead>
                         <tr>
-                            <th class="text-center">Nombre de tables</th>
+                            <th class="text-center">Nombre de lignes</th>
                             <th class="text-center">Date de création</th>
-                            <th class="text-center">Espace mémoire</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="text-center">
                             <td><?= $arr[0] ?></td>
                             <td>2</td>
-                            <td>~ <?= $arr2[0] ?></td>
                         </tr>
                 </table>
             </div>
@@ -79,30 +82,30 @@ $arr3 = $dbh->query($query3)->fetch();
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title" style="width:90%">Tables de <strong><?=$bdd ?></strong></h3>
+                <h3 class="panel-title" style="width:90%">Structure de la table <strong><?=$table ?></strong></h3>
                 <span class="pull-right clickable" style="margin-top: -20px"><i class="glyphicon glyphicon-chevron-up"></i></span>
             </div>
             <div class="panel-body">
                 <table class="table table-bordered table-striped table-hover">
                     <tbody>
                         <tr>
-                            <td title="Ajouter une table" colspan="5"  class="text-center"><span class="glyphicon glyphicon-plus"></td>
+                            <td title="Ajouter une ligne" colspan="5"  class="text-center"><span class="glyphicon glyphicon-plus"></td>
                         </tr>
                         <?php
-    $stmt = $dbh->prepare('use '.$bdd.';');
-                    $stmt->execute();
-                    $tables = $dbh->query('SHOW table status; ')->fetchAll(PDO::FETCH_CLASS, 'Table');
-
-                    foreach($tables as $table)
-                    {
-                        echo '<tr>';
-                        echo '<td style="padding: 0px;"><a title="Acceder au contenu" style="padding: 8px; display: block;" href="index.php?p=unetablecontent&bdd='.$bdd.'&table='.$table->get_name().'">' . $table->get_name() . '</a></td>';
-                        echo '<td class="text-center"><a style="color: black;" href="index.php?p=unetablecontent&bdd='.$bdd.'&table='.$table->get_name().'"><span title="Acceder au contenu" class="glyphicon glyphicon-list-alt"></span></a></td>';
-                        echo '<td class="text-center"><a style="color: black;" href="index.php?p=unetablestructure&bdd='.$bdd.'&table='.$table->get_name().'"><span title="Acceder à la structure" class="glyphicon glyphicon-list"></span></a></td>';
-                        echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
-                        echo '<td class="text-center"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></td>';
-                        echo '<tr>';
-                    }
+//                    $stmt = $dbh->prepare('use '.$bdd.';');
+//                    $stmt->execute();
+//                    $lignes = $dbh->query('SELECT * FROM '.$table.';')->fetchAll(PDO::FETCH_CLASS, 'Ligne');
+//                    var_dump($lignes);
+//                    foreach($lignes as $ligne)
+//                    {
+//                        echo '<tr>';
+//                        echo '<td style="padding: 0px;"><a title="Acceder au contenu" style="padding: 8px; display: block;" href="#">' . $ligne->get_name() . '</a></td>';
+//                        echo '<td class="text-center"><span title="Acceder au contenu" class="glyphicon glyphicon-list-alt"></span></td>';
+//                        echo '<td class="text-center"><span title="Acceder à la structure" class="glyphicon glyphicon-list"></span></td>';
+//                        echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
+//                        echo '<td class="text-center"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></td>';
+//                        echo '<tr>';
+//                    }
                         ?>
                     </tbody>
                 </table>

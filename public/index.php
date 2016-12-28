@@ -47,6 +47,10 @@ use ARG\App;
             require '../app/views/BDDs/unebdd.php';       // <-
         } else if ($p === 'sql') {
             require '../app/views/BDDs/sql.php';
+        } else if ($p === 'unetablecontent') {
+            require '../app/views/BDDs/unetablecontent.php';
+        } else if ($p === 'unetablestructure') {
+            require '../app/views/BDDs/unetablestructure.php';
         } else {
             require '../app/views/Pages/404.php';
         }
