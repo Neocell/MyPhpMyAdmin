@@ -18,8 +18,18 @@ class TableController extends AppController {
     public function index($bdd, $table) {
         App::getAPI()->useBDD($bdd);
         $contents = App::getAPI()->getAllContentTable($table);
-        $columns = App::getAPI()->getAllColumnNameTable($table);
+        $columns = App::getAPI()->getAllColumnTable($table);
         $this->render('table.index', compact('bdd','table','contents','columns'));
+    }
+
+    /**
+     * Function qui permet de rendre la vue Table/index.php
+     * @return void
+     */
+    public function show($bdd, $table) {
+        App::getAPI()->useBDD($bdd);
+        $columns = App::getAPI()->getAllColumnTable($table);
+        $this->render('table.show', compact('bdd','table','columns'));
     }
 
 }

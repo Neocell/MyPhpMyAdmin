@@ -29,13 +29,13 @@
                 <table class="table table-bordered table-striped table-hover">
                     <thead>
                         <tr>
-                            <th class="text-center">Nombre de lignes</th>
+                            <th class="text-center">Nombre de colonnes</th>
                             <th class="text-center">Date de création</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="text-center">
-                            <td><?= count($contents);?></td>
+                            <td><?= count($columns); ?></td>
                             <td>2</td>
                         </tr>
                 </table>
@@ -53,23 +53,24 @@
                 <table class="table table-bordered table-striped table-hover">
                     <thead>
                         <tr>
-                            <?php
-    foreach($columns as $column){
-        echo "<th><strong>".$column->Field."</strong></th>";
-    }
-                            ?>
+                            <th>Field</th>
+                            <th>Type</th>
+                            <th>Null</th>
+                            <th>Key</th>
+                            <th>Default</th>
+                            <th>Extra</th>
                             <th colspan="2"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td title="Ajouter une ligne" colspan="<?=count($columns)+2;?>"  class="text-center"><span class="glyphicon glyphicon-plus"></td>
+                            <td title="Ajouter une ligne" colspan="10"  class="text-center"><span class="glyphicon glyphicon-plus"></td>
                         </tr>
                         <?php
-                        foreach($contents as $content)
+                        foreach($columns as $column)
                         {
                             echo '<tr>';
-                            foreach($content as $key => $value)
+                            foreach($column as $key => $value)
                             {
                                 if ($value == null)
                                     echo "<td>null</td>";

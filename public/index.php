@@ -48,11 +48,12 @@ use ARG\App;
             $controller->show($_GET['bdd']);
         } else if ($p === 'sql') {
             require '../app/views/BDDs/sql.php';
-        } else if ($p === 'table') {
+        } else if ($p === 'tablecontent') {
             $controller = new TableController();
             $controller->index($_GET['bdd'], $_GET['table']);
-        } else if ($p === 'unetablestructure') {
-            require '../app/views/BDDs/unetablestructure.php';
+        } else if ($p === 'tablestructure') {
+            $controller = new TableController();
+            $controller->show($_GET['bdd'], $_GET['table']);
         } else {
             require '../app/views/Pages/404.php';
         }

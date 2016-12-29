@@ -71,7 +71,7 @@ class BDDModel
      * @param string $table | Nom de la table
      * @return array $tables | Liste des lignes contenu dans la table
      */
-    public static function getAllColumnNameTable($table) {
+    public static function getAllColumnTable($table) {
         App::getDB()->prepare('use '.self::$bdd.';');
         $columns = App::getDB()->query("SHOW columns FROM $table;");
         return $columns;
