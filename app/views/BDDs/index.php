@@ -20,23 +20,25 @@
                 <span class="pull-right clickable" style="margin-top: -20px"><i class="glyphicon glyphicon-chevron-up"></i></span>
             </div>
             <div class="panel-body">
-                <table class="table table-bordered table-striped table-hover">
-                    <tbody>
-                        <tr>
-                            <td colspan="3"  class="text-center"><span class="glyphicon glyphicon-plus"></td>
-                        </tr>
-                        <?php
-                        foreach($databases as $data)
-                        {
-                            echo '<tr>';
-                            echo '<td style="padding: 0px;"><a title="Accéder à la base de donnée" style="padding: 8px; display: block;" href="index.php?p=bddshow&bdd='. $data->Database .'">' . $data->Database . '</a></td>';
-                            echo '<td class="text-center"><a style="color:black;" onclick=\'renameBDD("'.$data->Database.'")\' data-toggle="modal" href="#myModalRename"><span title="Renommer la base de donnée" class="glyphicon glyphicon-pencil rename"></span></a></td>';
-                            echo '<td class="text-center"><a style="color:black;" onclick=\'removeBDD("'.$data->Database.'")\' data-toggle="modal" href="#myModalRemove"><span title="Supprimer la base de donnée" class="glyphicon glyphicon-trash remove"></span></a></td>';
-                            echo '<tr>';
-                        }
-                        ?>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover">
+                        <tbody>
+                            <tr>
+                                <td colspan="3"  class="text-center"><span class="glyphicon glyphicon-plus"></td>
+                            </tr>
+                            <?php
+                            foreach($databases as $data)
+                            {
+                                echo '<tr>';
+                                echo '<td style="padding: 0px;"><a title="Accéder à la base de donnée" style="padding: 8px; display: block;" href="index.php?p=bddshow&bdd='. $data->Database .'">' . $data->Database . '</a></td>';
+                                echo '<td class="text-center"><a style="color:black;" onclick=\'renameBDD("'.$data->Database.'")\' data-toggle="modal" href="#myModalRename"><span title="Renommer la base de donnée" class="glyphicon glyphicon-pencil rename"></span></a></td>';
+                                echo '<td class="text-center"><a style="color:black;" onclick=\'removeBDD("'.$data->Database.'")\' data-toggle="modal" href="#myModalRemove"><span title="Supprimer la base de donnée" class="glyphicon glyphicon-trash remove"></span></a></td>';
+                                echo '<tr>';
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <?php// require 'sql.php'; ?>  <!--     <- Pourquoi ici ?     -->

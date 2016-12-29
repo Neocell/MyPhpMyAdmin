@@ -50,40 +50,42 @@
                 <span class="pull-right clickable" style="margin-top: -20px"><i class="glyphicon glyphicon-chevron-up"></i></span>
             </div>
             <div class="panel-body">
-                <table class="table table-bordered table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <?php
+                <div class="table-responsive">
+                    <table class="table table-bordered  table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <?php
     foreach($columns as $column){
         echo "<th><strong>".$column->Field."</strong></th>";
     }
-                            ?>
-                            <th colspan="2"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td title="Ajouter une ligne" colspan="<?=count($columns)+2;?>"  class="text-center"><span class="glyphicon glyphicon-plus"></td>
-                        </tr>
-                        <?php
-                        foreach($contents as $content)
-                        {
-                            echo '<tr>';
-                            foreach($content as $key => $value)
+                                ?>
+                                <th colspan="2"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td title="Ajouter une ligne" colspan="<?=count($columns)+2;?>"  class="text-center"><span class="glyphicon glyphicon-plus"></td>
+                            </tr>
+                            <?php
+                            foreach($contents as $content)
                             {
-                                if ($value == null)
-                                    echo "<td>null</td>";
-                                else
-                                    echo "<td>$value</td>";
-                            }
-                            echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
-                            echo '<td class="text-center"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></td>';
+                                echo '<tr>';
+                                foreach($content as $key => $value)
+                                {
+                                    if ($value == null)
+                                        echo "<td>null</td>";
+                                    else
+                                        echo "<td>$value</td>";
+                                }
+                                echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
+                                echo '<td class="text-center"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></td>';
 
-                            echo '<tr>';
-                        }
-                        ?>
-                    </tbody>
-                </table>
+                                echo '<tr>';
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
