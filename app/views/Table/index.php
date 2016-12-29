@@ -22,7 +22,7 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading" >
-                <h3 class="panel-title" style="width:90%">Information de la table <strong><?= $table ?></strong></h3>
+                <h3 class="panel-title" style="width:90%">Informations de la table <strong><?= $table ?></strong></h3>
                 <span class="pull-right clickable panel-collapsed" style="margin-top: -20px"><i class="glyphicon glyphicon-chevron-down"></i></span>
             </div>
             <div class="panel-body" style="display: none;">
@@ -68,10 +68,14 @@
                         <?php
                         foreach($contents as $content)
                         {
+                            var_dump($content);
                             echo '<tr>';
                             foreach($content as $key => $value)
                             {
-                                echo "<td>$value</td>";
+                                if ($value == null)
+                                    echo "<td>null</td>";
+                                else
+                                    echo "<td>$value</td>";
                             }
                             echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
                             echo '<td class="text-center"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></td>';

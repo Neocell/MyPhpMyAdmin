@@ -17,7 +17,7 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading" >
-                <h3 class="panel-title" style="width:90%">Information de la base de donnée <strong><?= $bdd ?></strong></h3>
+                <h3 class="panel-title" style="width:90%">Informations de la base de donnée <strong><?= $bdd ?></strong></h3>
                 <span class="pull-right clickable panel-collapsed" style="margin-top: -20px"><i class="glyphicon glyphicon-chevron-down"></i></span>
             </div>
             <div class="panel-body" style="display: none;">
