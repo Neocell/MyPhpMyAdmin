@@ -19,6 +19,10 @@ class BDDsController extends AppController {
         $this->render('BDDs.index', compact('databases'));
     }
 
+    /**
+     * Function qui permet de rendre la vue BDDs/show.php 
+     * @return void
+     */
     public function show($bdd) {
         App::getAPI()->useBDD($bdd);
         $nb_tables = App::getAPI()->countTables();
