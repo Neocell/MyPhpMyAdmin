@@ -1,10 +1,11 @@
 <style type="text/css">
     .glyphicon:hover { cursor: pointer; }
     .clickable: hover { cursor: pointer; }
+    .remove { color: #910202; }
 </style>
 
 
-<div class="container" style=" margin-bottom: 25px;">
+<div class="container" >
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading" >
@@ -12,9 +13,7 @@
             </div>
         </div>
     </div>
-</div>
 
-<div class="container" style=" margin-bottom: 25px;">
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading" >
@@ -40,8 +39,7 @@
             </div>
         </div>
     </div>
-</div>
-<div class="container">
+
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
