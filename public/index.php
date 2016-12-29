@@ -3,6 +3,7 @@ require '../configs/router.php';
 
 use ARG\Controller\BDDsController;
 use ARG\Controller\PagesController;
+use ARG\Controller\TableController;
 use ARG\App;
 ?>
 
@@ -35,7 +36,6 @@ use ARG\App;
         <!-- Import du corps -->
         <?php
 
-        require '../app/Controller/BDDsController.php';
 
         if ($p === 'accueil') {
             $controller = new PagesController();
@@ -48,8 +48,9 @@ use ARG\App;
             $controller->show($_GET['bdd']);
         } else if ($p === 'sql') {
             require '../app/views/BDDs/sql.php';
-        } else if ($p === 'unetablecontent') {
-            require '../app/views/BDDs/unetablecontent.php';
+        } else if ($p === 'table') {
+            $controller = new TableController();
+            $controller->index($_GET['bdd'], $_GET['table']);
         } else if ($p === 'unetablestructure') {
             require '../app/views/BDDs/unetablestructure.php';
         } else {

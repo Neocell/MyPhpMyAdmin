@@ -2,6 +2,7 @@
     .glyphicon:hover { cursor: pointer; }
     .clickable: hover { cursor: pointer; }
 </style>
+
 <div class="container">
     <div class="row">
         <div class="panel panel-default">
