@@ -1,13 +1,7 @@
-
-<?php
-//$query = 'SELECT COUNT(*) as nbr_Table FROM information_schema.tables WHERE table_schema = \''.$bdd.'\'';
-//$arr = $dbh->query($query)->fetch();
-
-?>
-
 <style type="text/css">
     .glyphicon:hover { cursor: pointer; }
     .clickable: hover { cursor: pointer; }
+    .remove { color: #910202; }
 </style>
 
 <div class="container">

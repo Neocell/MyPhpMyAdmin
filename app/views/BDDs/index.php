@@ -41,7 +41,6 @@
                 </div>
             </div>
         </div>
-        <?php// require 'sql.php'; ?>  <!--     <- Pourquoi ici ?     -->
     </div>
 </div>
 
