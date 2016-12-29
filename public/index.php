@@ -11,6 +11,7 @@ use ARG\App;
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>myPhpMyAdmin</title>
         <link rel="stylesheet" href="../public/assets/css/bootstrap.min.css">
         <script src="../public/assets/js/jquery-3.1.1.min.js"></script>
