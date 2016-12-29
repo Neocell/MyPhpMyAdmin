@@ -19,7 +19,6 @@ class TableController extends AppController {
         App::getAPI()->useBDD($bdd);
         $contents = App::getAPI()->getAllContentTable($table);
         $columns = App::getAPI()->getAllColumnNameTable($table);
-        var_dump($contents);
         $this->render('table.index', compact('bdd','table','contents','columns'));
     }
 

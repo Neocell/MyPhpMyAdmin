@@ -54,27 +54,29 @@
                     <thead>
                         <tr>
                             <?php
-                                foreach($columns as $column){
-                                    echo "<td>$column</td>";
-                                }
+    foreach($columns as $column){
+        echo "<td><strong>".$column->Field."</strong></td>";
+    }
                             ?>
+                            <td colspan="2"></td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td title="Ajouter une ligne" colspan="<?=count($columns);?>"  class="text-center"><span class="glyphicon glyphicon-plus"></td>
+                            <td title="Ajouter une ligne" colspan="<?=count($columns)+2;?>"  class="text-center"><span class="glyphicon glyphicon-plus"></td>
                         </tr>
                         <?php
                         foreach($contents as $content)
                         {
-                            var_dump($content);
-                            //                        echo '<tr>';
-                            //                        echo '<td style="padding: 0px;"><a title="Acceder au contenu" style="padding: 8px; display: block;" href="#"> PHP </a></td>';
-                            //                        echo '<td class="text-center"><span title="Acceder au contenu" class="glyphicon glyphicon-list-alt"></span></td>';
-                            //                        echo '<td class="text-center"><span title="Acceder à la structure" class="glyphicon glyphicon-list"></span></td>';
-                            //                        echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
-                            //                        echo '<td class="text-center"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></td>';
-                            //                        echo '<tr>';
+                            echo '<tr>';
+                            foreach($content as $key => $value)
+                            {
+                                echo "<td>$value</td>";
+                            }
+                            echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
+                            echo '<td class="text-center"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></td>';
+
+                            echo '<tr>';
                         }
                         ?>
                     </tbody>
