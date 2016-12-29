@@ -44,7 +44,7 @@ class BDDModel
      * @return float $em | Espace mémoire de la base de donnée passé en paramétre
      */
     public static function memorySpaceDatabase() {
-        $em = App::getDB()->query('SELECT Round(Sum(data_length + index_length) / 1024 / 1024, 1) FROM information_schema.tables WHERE table_schema = \''.self::$bdd.'\' GROUP BY table_schema');
+        $em = App::getDB()->query('SELECT Round(Sum(data_length + index_length) / 1024 / 1024, 1) as em FROM information_schema.tables WHERE table_schema = \''.self::$bdd.'\' GROUP BY table_schema');
         return $em;
     }
 

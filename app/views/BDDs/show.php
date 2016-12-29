@@ -17,7 +17,7 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading" >
-                <h3 class="panel-title" style="width:90%">Information de la base de donnée <strong><?=$bdd ?></strong></h3>
+                <h3 class="panel-title" style="width:90%">Information de la base de donnée <strong><?= $bdd ?></strong></h3>
                 <span class="pull-right clickable panel-collapsed" style="margin-top: -20px"><i class="glyphicon glyphicon-chevron-down"></i></span>
             </div>
             <div class="panel-body" style="display: none;">
@@ -31,9 +31,9 @@
                     </thead>
                     <tbody>
                         <tr class="text-center">
-                            <td><?= $nb_tables[0] ?></td>
+                            <td><?= $nb_tables[0]->nbr_Table ?></td>
                             <td>2</td>
-                            <td>~ <?= $ms_tables[0] ?></td>
+                            <td>~ <?= $ms_tables[0]->em ?></td>
                         </tr>
                 </table>
             </div>
@@ -57,9 +57,9 @@
                     foreach($tables as $table)
                     {
                         echo '<tr>';
-                        echo '<td style="padding: 0px;"><a title="Acceder au contenu" style="padding: 8px; display: block;" href="index.php?p=table&bdd='.$bdd.'&table='.$table.'">' . $table . '</a></td>';
-                        echo '<td class="text-center"><a style="color: black;" href="index.php?p=unetablecontent&bdd='.$bdd.'&table='.$table.'"><span title="Acceder au contenu" class="glyphicon glyphicon-list-alt"></span></a></td>';
-                        echo '<td class="text-center"><a style="color: black;" href="index.php?p=unetablestructure&bdd='.$bdd.'&table='.$table.'"><span title="Acceder à la structure" class="glyphicon glyphicon-list"></span></a></td>';
+                        echo '<td style="padding: 0px;"><a title="Acceder au contenu" style="padding: 8px; display: block;" href="index.php?p=table&bdd='.$bdd.'&table='.$table->Name.'">' . $table->Name . '</a></td>';
+                        echo '<td class="text-center"><a style="color: black;" href="index.php?p=unetablecontent&bdd='.$bdd.'&table='.$table->Name.'"><span title="Acceder au contenu" class="glyphicon glyphicon-list-alt"></span></a></td>';
+                        echo '<td class="text-center"><a style="color: black;" href="index.php?p=unetablestructure&bdd='.$bdd.'&table='.$table->Name.'"><span title="Acceder à la structure" class="glyphicon glyphicon-list"></span></a></td>';
                         echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
                         echo '<td class="text-center"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></td>';
                         echo '<tr>';

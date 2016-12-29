@@ -28,6 +28,7 @@ class BDDsController extends AppController {
         $nb_tables = App::getAPI()->countTables();
         $ms_tables = App::getAPI()->memorySpaceDatabase();
         $tables = App::getAPI()->getAllTables();
+        var_dump($tables);
         $this->render('BDDs.show', compact('bdd','nb_tables', 'ms_tables', 'tables'));
     }
 

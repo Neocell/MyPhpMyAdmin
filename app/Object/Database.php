@@ -39,7 +39,7 @@ class Database
      */
     public function query($statement) {
         $req = $this->getPDO()->query($statement);
-        $datas = $req->fetchAll(PDO::FETCH_COLUMN);
+        $datas = $req->fetchAll(PDO::FETCH_CLASS);
         return $datas;
     }
 
