@@ -51,25 +51,44 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td title="Ajouter une ligne" colspan="<?=count($columns)+2;?>"  class="text-center"><span class="glyphicon glyphicon-plus"></td>
-                            </tr>
-                            <?php
-                            foreach($contents as $content)
-                            {
-                                echo '<tr>';
-                                foreach($content as $key => $value)
-                                {
-                                    if ($value == null)
-                                        echo "<td>null</td>";
-                                    else
-                                        echo "<td>$value</td>";
-                                }
-                                echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
-                                echo '<td class="text-center"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></td>';
 
-                                echo '<tr>';
+                            <?php
+                            if ($bdd == "information_schema" || $bdd == "performance_schema" || $bdd == "mysql" || $bdd == "sys")
+                            {
+                                foreach($contents as $content)
+                                {
+                                    echo '<tr>';
+                                    foreach($content as $key => $value)
+                                    {
+                                        if ($value == null)
+                                            echo "<td>null</td>";
+                                        else
+                                            echo "<td>$value</td>";
+                                    }
+                                    echo '<td class="text-center"><span title="Renommage impossible" class="glyphicon glyphicon-pencil glypdisaled"></span></td>';
+                                    echo '<td class="text-center"><span title="Suppression impossible" class="glyphicon glyphicon-trash glypdisaled"></span></td>';
+                                    echo '<tr>';
+                                }
+                            } else {
+                                $colspannbr =  count($columns)+2;
+                                echo '<tr><td style="padding: 0px;" title="Ajouter une ligne" colspan=" ' . $colspannbr . ' "  class="text-center"><span class="glyphicon glyphicon-plus" style="padding: 8px;color:black; display: block;"></td></tr>';
+                                foreach($contents as $content)
+                                {
+                                    echo '<tr>';
+                                    foreach($content as $key => $value)
+                                    {
+                                        if ($value == null)
+                                            echo "<td>null</td>";
+                                        else
+                                            echo "<td>$value</td>";
+                                    }
+                                    echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
+                                    echo '<td class="text-center"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></td>';
+
+                                    echo '<tr>';
+                                }
                             }
+
                             ?>
                         </tbody>
                     </table>
