@@ -84,6 +84,3 @@
         </div>
     </div>
 </div>
-
-<!-- Importation du script d'ouverture et fermeture d'un panel -->
-<script src="../public/assets/js/panelToggle.js"></script>
