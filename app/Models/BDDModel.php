@@ -77,4 +77,22 @@ class BDDModel
         return $columns;
     }
 
+    /**
+     * @param string $oldName | Encient nom de la base de donnée 
+     * @param string $newName | Nouveau nom de la base de donnée 
+     * @return void
+     */
+    public static function renameBDD($oldName, $newName) {
+        App::getDB()->query("SHOW columns FROM $table;");
+        return $columns;
+    }
+
+    /**
+     * @param string $bdd | Nom de la base de donnée à supprimer
+     * @return void
+     */
+    public static function deleteBDD($bdd) {
+        App::getDB()->query("DROP DATABASE " . $bdd . ";");
+    }
+
 }

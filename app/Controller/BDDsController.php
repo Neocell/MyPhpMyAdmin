@@ -21,6 +21,7 @@ class BDDsController extends AppController {
 
     /**
      * Function qui permet de rendre la vue BDDs/show.php 
+     * @param string $bdd | Nom de la base de donnée
      * @return void
      */
     public function show($bdd) {
@@ -29,6 +30,27 @@ class BDDsController extends AppController {
         $ms_tables = App::getAPI()->memorySpaceDatabase();
         $tables = App::getAPI()->getAllTables();
         $this->render('BDDs.show', compact('bdd','nb_tables', 'ms_tables', 'tables'));
+    }
+
+    /**
+     * Function qui permet de rendre la vue BDDs/index.php et qui modifie le nom d'une base de donnée
+     * @param string $oldName | Encient nom de la base de donnée 
+     * @param string $newName | Nouveau nom de la base de donnée 
+     * @return void
+     */
+    public function renameBDD($oldName, $newName) {
+        App::getAPI()->renameBDD($oldName, $newName);
+        $this->index();
+    }
+
+    /**
+     * Function qui permet de rendre la vue BDDs/index.php et qui supprime une base de donnée
+     * @param string $bdd | Nom de la base de donnée
+     * @return void
+     */
+    public function deleteBDD($bdd) {
+        App::getAPI()->deleteBDD($bdd);
+        $this->index();
     }
 
 }
