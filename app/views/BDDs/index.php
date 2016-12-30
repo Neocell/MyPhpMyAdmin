@@ -1,9 +1,3 @@
-<style type="text/css">
-    .glyphicon:hover { cursor: pointer; }
-    .clickable: hover { cursor: pointer; }
-    .remove { color: #910202; }
-</style>
-
 <div class="container">
     <div class="row">
         <div class="panel panel-default">
@@ -49,20 +43,3 @@
 
 <!-- Modal remove bdd -->
 <?php require 'Modals/RemoveBDD.php'; ?>
-
-<script>
-     //Permet d'ouvrir ou fermer un panel
-    $(document).on('click', 'span.clickable', function(e){
-        var $this = $(this);
-        if(!$this.hasClass('panel-collapsed')) {
-            $this.parents('.panel').find('.panel-body').slideUp();
-            $this.addClass('panel-collapsed');
-            $this.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
-        } else {
-            $this.parents('.panel').find('.panel-body').slideDown();
-            $this.removeClass('panel-collapsed');
-            $this.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
-        }
-    });
-
-</script>

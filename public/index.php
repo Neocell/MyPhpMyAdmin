@@ -14,6 +14,7 @@ use ARG\App;
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>myPhpMyAdmin</title>
         <link rel="stylesheet" href="../public/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../public/assets/css/styles.css">
         <script src="../public/assets/js/jquery-3.1.1.min.js"></script>
     </head>
     <body>
@@ -36,7 +37,6 @@ use ARG\App;
 
         <!-- Import du corps -->
         <?php
-
 
         if ($p === 'accueil') {
             $controller = new PagesController();
@@ -62,5 +62,7 @@ use ARG\App;
         ?>
 
         <script src="../public/assets/js/bootstrap.min.js"></script>
+        <!-- Importation du script d'ouverture et fermeture d'un panel -->
+        <script src="../public/assets/js/panelToggle.js"></script>
     </body>
 </html>

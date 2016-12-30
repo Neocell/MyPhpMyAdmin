@@ -1,0 +1,11 @@
+.glyphicon:hover {
+    cursor: pointer;
+}
+
+.clickable: hover {
+    cursor: pointer;
+}
+
+.remove {
+    color: #910202;
+}
