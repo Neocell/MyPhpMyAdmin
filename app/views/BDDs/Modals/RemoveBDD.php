@@ -22,3 +22,12 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+function removeBDD(database) {
+    console.log(database);
+    document.getElementById("databaseRemove").innerHTML = database;
+    document.getElementById("databaseRemoveInput").value = database;
+
+}
+</script>

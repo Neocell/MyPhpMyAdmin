@@ -44,39 +44,14 @@
     </div>
 </div>
 
-
-
 <!-- Modal rename bdd -->
-<?php //require_once 'Modals/RenameBDD.php'; ?>
-
+<?php require 'Modals/RenameBDD.php'; ?>
 
 <!-- Modal remove bdd -->
-<?php //require_once 'Modals/RemoveBDD.php'; ?>
-
-
+<?php require 'Modals/RemoveBDD.php'; ?>
 
 <script>
-
-
-    function removeBDD(database)
-    {
-        console.log(database);
-        document.getElementById("databaseRemove").innerHTML = database;
-        document.getElementById("databaseRemoveInput").value = database;
-
-    }
-
-    function renameBDD(database)
-    {
-        console.log(database);
-        document.getElementById("databaseRename").innerHTML = database;
-        document.getElementById("databaseRenameInput").value = database;
-
-    }
-
-
-
-    //Permet d'ouvrir ou fermer un panel
+     //Permet d'ouvrir ou fermer un panel
     $(document).on('click', 'span.clickable', function(e){
         var $this = $(this);
         if(!$this.hasClass('panel-collapsed')) {

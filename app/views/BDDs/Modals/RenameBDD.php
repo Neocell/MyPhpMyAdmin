@@ -25,3 +25,12 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+function renameBDD(database) {
+    console.log(database);
+    document.getElementById("databaseRename").innerHTML = database;
+    document.getElementById("databaseRenameInput").value = database;
+
+}
+</script>
