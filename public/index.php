@@ -47,6 +47,8 @@ use ARG\App;
         } else if ($p === 'bdd.delete') {
             $controller = new BDDsController();
             $controller->deleteBDD($_POST['dbName']);
+        } else if ($p === 'bdd.delete.json') {
+            echo $_GET['response'];
         } else if ($p === 'bddshow') {                  
             $controller = new BDDsController();
             $controller->show($_GET['bdd']);

@@ -22,7 +22,7 @@ class Database
         if ($this->pdo === NULL) {
             try {
                 $dbh = new PDO('mysql:host=localhost;', "root", "");   
-                $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                //$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
                 $this->pdo = $dbh; 
                 return $dbh;
             } catch (PDOException $e) {
@@ -38,9 +38,13 @@ class Database
      * @return $datas Résultat(s) de la requête.
      */
     public function query($statement) {
-        $req = $this->getPDO()->query($statement);
-        $datas = $req->fetchAll(PDO::FETCH_CLASS);
-        return $datas;
+        try {
+            $req = $this->getPDO()->query($statement);
+            $datas = $req->fetchAll(PDO::FETCH_CLASS);
+            return $datas;
+        } catch (PDOException $e) {
+            throw $e;
+        }
     }
 
     /**
@@ -48,8 +52,20 @@ class Database
      * @return void
      */
     public function prepare($statement) {
-        $req = $this->getPDO()->prepare($statement);
-        $req->execute();
+        try {
+            $req = $this->getPDO()->prepare($statement);
+            if (!$req) {
+                echo "\nPDO::errorInfo():\n";
+                print_r($dbh->errorInfo(), true);
+            }
+            if ($req->execute()) { 
+                return(json_encode(array("message" => $req->errorInfo(), "succes" => true)));
+            } else {
+                return(json_encode(array("message" => $req->errorInfo(), "succes" => false)));
+            };
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
     }
 
 }

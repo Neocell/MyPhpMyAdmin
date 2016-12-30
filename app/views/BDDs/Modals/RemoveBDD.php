@@ -33,9 +33,10 @@
             method: "POST",
             url: "index.php?p=bdd.delete",
             data: { dbName: theDbName }
-        }).done(function() {
-            $('#myModalRemove').modal('hide');
-            location.reload();
+        }).done(function(data) {
+            // $('#myModalRemove').modal('hide');
+            // location.reload();
+            console.log(data);
         });
 
     });
