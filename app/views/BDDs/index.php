@@ -18,7 +18,7 @@
                     <table class="table table-bordered table-striped table-hover">
                         <tbody>
                             <tr>
-                                <td colspan="3"  class="text-center"><span class="glyphicon glyphicon-plus"></td>
+                                <td colspan="3"  class="text-center"><a style="color:black; display: block;" data-toggle="modal" href="#myModalAdd"><span class="glyphicon glyphicon-plus"></a></td>
                             </tr>
                             <?php
                             foreach($databases as $data)
@@ -54,3 +54,6 @@
 
 <!-- Modal remove bdd -->
 <?php require 'Modals/RemoveBDD.php'; ?>
+
+<!-- Modal remove bdd -->
+<?php require 'Modals/AddBDD.php'; ?>

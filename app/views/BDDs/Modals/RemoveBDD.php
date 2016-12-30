@@ -25,16 +25,18 @@
 
 <script type="text/javascript">
     $( "#formDatabaseRemove" ).submit(function( event ) {
+        event.preventDefault();
+
         var theDbName = document.getElementById("databaseRemoveInput").value;
+
         $.ajax({
             method: "POST",
             url: "index.php?p=bdd.delete",
             data: { dbName: theDbName }
         }).done(function() {
-            console.log("fait");
+
         });
-        alert( "Handler for .submit() called." );
-        event.preventDefault();ok 
+
     });
 </script>
 
