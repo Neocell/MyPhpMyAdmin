@@ -1,7 +1,7 @@
 <div class="modal fade" id="myModalRemove">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="" method="post" id="formDatabaseRemove">
+            <form action="#" method="post" id="formDatabaseRemove">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -27,6 +27,8 @@
 
     $( "#formDatabaseRemove" ).submit(function( event ) {
 
+        event.preventDefault();
+
         var theDbName = document.getElementById("databaseRemoveInput").value;
 
         $.ajax({
@@ -34,14 +36,13 @@
             url: "index.php?p=bdd.delete",
             data: { dbName: theDbName }
         }).done(function() {
-            console.log("fait");
+            $('#myModalRemove').modal('hide');
+            location.reload();
         });
-        alert( "Handler for .submit() called." );
-        event.preventDefault();
+
     });
 
 </script>
-
 
 <script type="text/javascript">
 
