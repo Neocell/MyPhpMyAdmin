@@ -34,7 +34,8 @@
             url: "index.php?p=bdd.delete",
             data: { dbName: theDbName }
         }).done(function() {
-
+            $('#myModalRemove').modal('hide');
+            location.reload();
         });
 
     });
