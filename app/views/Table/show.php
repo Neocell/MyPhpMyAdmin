@@ -52,24 +52,41 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td title="Ajouter une ligne" colspan="10"  class="text-center"><span class="glyphicon glyphicon-plus"></td>
-                            </tr>
                             <?php
-    foreach($columns as $column)
+    if ($bdd == "information_schema" || $bdd == "performance_schema" || $bdd == "mysql" || $bdd == "sys")
     {
-        echo '<tr>';
-        foreach($column as $key => $value)
+        foreach($columns as $column)
         {
-            if ($value == null)
-                echo "<td>null</td>";
-            else
-                echo "<td>$value</td>";
-        }
-        echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
-        echo '<td class="text-center"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></td>';
+            echo '<tr>';
+            foreach($column as $key => $value)
+            {
+                if ($value == null)
+                    echo "<td>null</td>";
+                else
+                    echo "<td>$value</td>";
+            }
+            echo '<td class="text-center"><span title="Renommage impossible" class="glyphicon glyphicon-pencil glypdisaled"></span></td>';
+            echo '<td class="text-center"><span title="Suppression impossible" class="glyphicon glyphicon-trash glypdisaled"></span></td>';
 
-        echo '<tr>';
+            echo '<tr>';
+        }
+    } else {
+        echo '<tr><td title="Ajouter une ligne" colspan="10"  class="text-center"><span class="glyphicon glyphicon-plus"></td></tr>';
+        foreach($columns as $column)
+        {
+            echo '<tr>';
+            foreach($column as $key => $value)
+            {
+                if ($value == null)
+                    echo "<td>null</td>";
+                else
+                    echo "<td>$value</td>";
+            }
+            echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
+            echo '<td class="text-center"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></td>';
+
+            echo '<tr>';
+        }
     }
                             ?>
                         </tbody>
