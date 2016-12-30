@@ -18,7 +18,7 @@
                     <table class="table table-bordered table-striped table-hover">
                         <tbody>
                             <tr>
-                                <td colspan="3"  class="text-center"><a style="color:black; display: block;" data-toggle="modal" href="#myModalAdd"><span class="glyphicon glyphicon-plus"></a></td>
+                                <td colspan="3" style="padding: 0px;"  class="text-center"><a style="padding: 8px;color:black; display: block;" data-toggle="modal" href="#myModalAdd"><span class="glyphicon glyphicon-plus"></a></td>
                             </tr>
                             <?php
                             foreach($databases as $data)

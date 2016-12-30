@@ -43,21 +43,36 @@
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-hover">
                         <tbody>
-                            <tr>
-                                <td title="Ajouter une table" colspan="5"  class="text-center"><span class="glyphicon glyphicon-plus"></td>
-                            </tr>
                             <?php
 
-    foreach($tables as $table)
+    if ($bdd == "information_schema" || $bdd == "performance_schema" || $bdd == "mysql" || $bdd == "sys")
     {
-        echo '<tr>';
-        echo '<td style="padding: 0px;"><a title="Acceder au contenu" style="padding: 8px; display: block;" href="index.php?p=tablecontent&bdd='.$bdd.'&table='.$table->Name.'">' . $table->Name . '</a></td>';
-        echo '<td class="text-center"><a style="color: black;" href="index.php?p=tablecontent&bdd='.$bdd.'&table='.$table->Name.'"><span title="Acceder au contenu" class="glyphicon glyphicon-list-alt"></span></a></td>';
-        echo '<td class="text-center"><a style="color: black;" href="index.php?p=tablestructure&bdd='.$bdd.'&table='.$table->Name.'"><span title="Acceder à la structure" class="glyphicon glyphicon-list"></span></a></td>';
-        echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
-        echo '<td class="text-center"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></td>';
-        echo '<tr>';
+        foreach($tables as $table)
+        {
+
+            echo '<tr>';
+            echo '<td style="padding: 0px;"><a title="Acceder au contenu" style="padding: 8px; display: block;" href="index.php?p=tablecontent&bdd='.$bdd.'&table='.$table->Name.'">' . $table->Name . '</a></td>';
+            echo '<td class="text-center"><a style="color: black;" href="index.php?p=tablecontent&bdd='.$bdd.'&table='.$table->Name.'"><span title="Acceder au contenu" class="glyphicon glyphicon-list-alt"></span></a></td>';
+            echo '<td class="text-center"><a style="color: black;" href="index.php?p=tablestructure&bdd='.$bdd.'&table='.$table->Name.'"><span title="Acceder à la structure" class="glyphicon glyphicon-list"></span></a></td>';
+            echo '<td class="text-center"><span title="Renommage impossible" class="glyphicon glyphicon-pencil glypdisaled"></span></td>';
+            echo '<td class="text-center"><span title="Suppression impossible" class="glyphicon glyphicon-trash glypdisaled"></span></td>';
+            echo '<tr>';
+        }
+
+    } else {
+        foreach($tables as $table)
+        {
+            echo '<tr><td title="Ajouter une table" colspan="5"  class="text-center"><span class="glyphicon glyphicon-plus"></td></tr>';
+            echo '<tr>';
+            echo '<td style="padding: 0px;"><a title="Acceder au contenu" style="padding: 8px; display: block;" href="index.php?p=tablecontent&bdd='.$bdd.'&table='.$table->Name.'">' . $table->Name . '</a></td>';
+            echo '<td class="text-center"><a style="color: black;" href="index.php?p=tablecontent&bdd='.$bdd.'&table='.$table->Name.'"><span title="Acceder au contenu" class="glyphicon glyphicon-list-alt"></span></a></td>';
+            echo '<td class="text-center"><a style="color: black;" href="index.php?p=tablestructure&bdd='.$bdd.'&table='.$table->Name.'"><span title="Acceder à la structure" class="glyphicon glyphicon-list"></span></a></td>';
+            echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
+            echo '<td class="text-center"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></td>';
+            echo '<tr>';
+        }
     }
+
                             ?>
                         </tbody>
                     </table>
