@@ -9,3 +9,11 @@
 .remove {
     color: #910202;
 }
+
+.glypdisaled {
+    color:#a5a5a5;
+}
+
+.glypdisaled:hover {
+    cursor: default;!important
+}
