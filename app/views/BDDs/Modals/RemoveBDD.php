@@ -37,7 +37,7 @@
             console.log("fait");
         });
         alert( "Handler for .submit() called." );
-        event.preventDefault();
+        event.preventDefault();ok 
     });
 
 </script>

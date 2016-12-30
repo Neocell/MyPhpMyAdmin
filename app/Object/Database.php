@@ -34,7 +34,7 @@ class Database
     }
     
     /**
-     * @param $statement Contient la query à exécuter.
+     * @param string $statement Contient la query à exécuter.
      * @return $datas Résultat(s) de la requête.
      */
     public function query($statement) {
@@ -44,7 +44,7 @@ class Database
     }
 
     /**
-     * @param $statement Contient la query à préparé.
+     * @param string $statement Contient la query à préparé.
      * @return void
      */
     public function prepare($statement) {
