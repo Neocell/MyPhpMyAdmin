@@ -29,7 +29,6 @@ class BDDModel
      */
     public static function getAllDatabases() {
         $datas = App::getDB()->query('SHOW DATABASES');
-        var_dump($datas);
         return $datas;
     }
 
