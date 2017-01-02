@@ -52,7 +52,7 @@ class BDDsController extends AppController {
      */
     public function deleteBDD($bdd) {
         $res = App::getAPI()->deleteBDD($bdd);
-        if($res.succes)  
+        if($res['succes'])  
             $this->index();
         else 
             $this->index(json_encode($res));
