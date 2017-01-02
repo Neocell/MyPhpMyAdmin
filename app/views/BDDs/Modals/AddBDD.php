@@ -1,7 +1,7 @@
 <div class="modal fade" id="myModalAdd">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="#" method="post" id="formDatabaseAdd">
+            <form action="index.php?p=bdd.add" method="post" id="formDatabaseAdd">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
