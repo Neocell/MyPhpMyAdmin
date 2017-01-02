@@ -12,11 +12,13 @@ class BDDsController extends AppController {
 
     /**
      * Function qui permet de rendre la vue BDDs/index.php 
+     * @param json $errors | Pramétre optionnel, contient les erreurs envoyer a la vue. 
      * @return void
      */
-    public function index() {
+    public function index($errors = NULL) {
+        var_dump($errors);
         $databases = App::getAPI()->getAllDatabases(); /* Stoke dans $databases la liste des bases de données MySQL */
-        $this->render('BDDs.index', compact('databases'));
+        $this->render('BDDs.index', compact('databases', 'errors'));
     }
 
     /**
@@ -24,7 +26,7 @@ class BDDsController extends AppController {
      * @param string $bdd | Nom de la base de donnée
      * @return void
      */
-    public function show($bdd) {
+    public function show($bdd, $errors = NULL) {
         App::getAPI()->useBDD($bdd);
         $nb_tables = App::getAPI()->countTables();
         $ms_tables = App::getAPI()->memorySpaceDatabase();
@@ -49,8 +51,11 @@ class BDDsController extends AppController {
      * @return void
      */
     public function deleteBDD($bdd) {
-        App::getAPI()->deleteBDD($bdd);
-        $this->index();
+        $res = App::getAPI()->deleteBDD($bdd);
+        if($res.succes)  
+            $this->index();
+        else 
+            $this->index($res);
     }
 
 }
