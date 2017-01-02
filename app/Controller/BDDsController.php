@@ -55,7 +55,7 @@ class BDDsController extends AppController {
         if($res.succes)  
             $this->index();
         else 
-            $this->index($res);
+            $this->index(json_encode($res));
     }
 
 }
