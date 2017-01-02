@@ -71,9 +71,9 @@ class Database
             $req = $this->getPDO()->prepare($statement);
             if (!$req) {
                 echo "\nPDO::errorInfo():\n";
-                print_r($dbh->errorInfo(), true);
+                die ($this->print_error($this->getPDO()->errorInfo()));
             }
-            $req->execute() or die ($this->print_error($this->getPDO()->errorInfo()));
+            $req->execute() or die ($this->print_error($this->getPDO()->errorInfo(), true));
         } catch (PDOException $e) {
             die($e->getMessage());
         }
