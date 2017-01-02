@@ -38,11 +38,12 @@ class Database
      * @return string $result | Affiche dans une alert l'erreur de la requete. 
      */
     public function print_error($errors) {
-        echo '<div class="alert alert-dismissible alert-danger">' .
+        echo '<div class="container-fluid"><div class="row">' .
+            '<div class="alert alert-dismissible alert-danger">' .
              '<strong>Code d\'erreur SQLSTATE : ' . $errors[0] . '</strong>' .
              '<p>Code d\'erreur spécifique au driver : ' . $errors[1] . '</p>' .
              '<p>Error : ' . $errors[2] . '</p>' .
-             '</div>';
+             '</div></div></div>';
     }
     
     /**
