@@ -84,7 +84,6 @@ class BDDModel
      */
     public static function renameBDD($oldName, $newName) {
         App::getDB()->query("SHOW columns FROM $table;");
-        return $columns;
     }
 
     /**
