@@ -22,23 +22,3 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-
-    $( "#formDatabaseAdd" ).submit(function( event ) {
-        event.preventDefault();
-
-        var varAddNewDb = document.getElementById("databaseAddNewInput").value;
-
-        $.ajax({
-            method: "POST",
-            url: "index.php?p=bdd.add",
-            data: { newDbName: varAddNewDb }
-        }).done(function() {
-            $('#myModalAdd').modal('hide');
-            location.reload();
-        });
-
-    });
-
-</script>
