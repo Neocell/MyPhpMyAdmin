@@ -73,11 +73,7 @@ class Database
                 echo "\nPDO::errorInfo():\n";
                 print_r($dbh->errorInfo(), true);
             }
-            if ($req->execute()) { 
-                return(json_encode(array("message" => $req->errorInfo(), "succes" => true)));
-            } else {
-                return(json_encode(array("message" => $req->errorInfo(), "succes" => false)));
-            };
+            $req->execute() or die ($this->print_error($this->getPDO()->errorInfo()));
         } catch (PDOException $e) {
             die($e->getMessage());
         }
