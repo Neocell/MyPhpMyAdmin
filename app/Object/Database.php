@@ -22,7 +22,7 @@ class Database
         if ($this->pdo === NULL) {
             try {
                 $dbh = new PDO('mysql:host=localhost;', "root", "");   
-                //$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+                // $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
                 $this->pdo = $dbh; 
                 return $dbh;
             } catch (PDOException $e) {
@@ -39,7 +39,7 @@ class Database
      */
     public function query($statement) {
         try {
-            $req = $this->getPDO()->query($statement);
+            $req = $this->getPDO()->query($statement) or die (print_r($this->getPDO()->errorInfo()));
             if(!$req)
                 $datas = [];
             else 
