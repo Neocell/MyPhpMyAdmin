@@ -45,6 +45,16 @@ class BDDsController extends AppController {
     }
 
     /**
+     * Function qui permet de rendre la vue BDDs/index.php et qui ajoute une base de donnée
+     * @param string $bdd | Nom de la base de donnée 
+     * @return void
+     */
+    public function addBDD($bdd) {
+        App::getAPI()->addBDD($bdd);
+        $this->index();
+    }
+
+    /**
      * Function qui permet de rendre la vue BDDs/index.php et qui supprime une base de donnée
      * @param string $bdd | Nom de la base de donnée
      * @return void

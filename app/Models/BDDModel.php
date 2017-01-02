@@ -95,4 +95,12 @@ class BDDModel
         App::getDB()->query("DROP DATABASE " . $bdd . ";");
     }
 
+    /**
+     * @param string $bdd | Nom de la base de donnée à ajouter
+     * @return void
+     */
+    public static function addBDD($bdd) {
+        App::getDB()->query("CREATE DATABASE " . $bdd . ";");
+    }
+
 }
