@@ -1,7 +1,7 @@
 <div class="modal fade" id="myModalRename">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="#" method="post" id="formDatabaseRename">
+            <form action="index.php?bdd.rename" method="post" id="formDatabaseRename">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -25,27 +25,6 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-
-    $( "#formDatabaseRename" ).submit(function( event ) {
-        event.preventDefault();
-
-        var varCurrentDbName = document.getElementById("CurrentDatabaseRenameInput").value,
-            varNewDbName = document.getElementById("databaseRenameNewInput").value;
-
-        $.ajax({
-            method: "POST",
-            url: "index.php?p=bdd.rename",
-            data: { currentDbName: varCurrentDbName, newDbName: varNewDbName }
-        }).done(function() {
-            $('#myModalRename').modal('hide');
-            location.reload();
-        });
-
-    });
-
-</script>
 
 <script type="text/javascript">
 
