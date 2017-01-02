@@ -1,4 +1,11 @@
 <?php
+
+header("Expires: Sat, 01 Jan 2000 00:00:00 GMT"); // une date d'expiration dans le passé
+header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT"); // la date/heure de génération de la page
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0"); // désactivation du cache
+header("Cache-Control: post-check=0, pre-check=0", false); // gestion du cache de IE
+header("Pragma: no-cache"); // gestion du cache de IE
+
 require '../configs/router.php';
 
 use ARG\Controller\BDDsController;
