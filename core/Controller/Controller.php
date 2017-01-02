@@ -21,7 +21,8 @@ class Controller {
     public function render($view, $variables = []) {
         ob_start(); /* @example http://php.net/manual/fr/function.ob-start.php */
         extract($variables); /* @example http://php.net/manual/fr/function.extract.php */
-        require($view = $this->viewPath . str_replace('.', '/', $view) . '.php');
+        var_dump($this->viewPath);
+        require($view = $this->viewPath . '/' . str_replace('.', '/', $view) . '.php');
         $content = ob_get_clean(); /* @example http://php.net/manual/fr/function.ob-get-clean.php */
         require($view);
     }

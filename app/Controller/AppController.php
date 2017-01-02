@@ -14,7 +14,7 @@ class AppController extends Controller {
      * @return void
      */
     public function __construct() {
-        $this->viewPath = dirname(__DIR__) . '\\views\\';
+        $this->viewPath = dirname(__DIR__) . '/views';
     }
 
 }
