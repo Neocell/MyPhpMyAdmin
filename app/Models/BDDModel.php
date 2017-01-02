@@ -93,12 +93,7 @@ class BDDModel
      * @return void
      */
     public static function deleteBDD($bdd) {
-        try {
-            App::getDB()->query("DROP DATABASE " . $bdd . ";");
-            return array("message" => "Tout c'est bien passé", "succes" => true);
-        } catch (PDOException $e) {
-            return array("message" => $e->errorInfo(), "succes" => false);
-        }   
+        App::getDB()->query("DROP DATABASE " . $bdd . ";");
     }
 
 }

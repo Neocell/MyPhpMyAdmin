@@ -15,8 +15,7 @@ class BDDsController extends AppController {
      * @param json $errors | Pramétre optionnel, contient les erreurs envoyer a la vue. 
      * @return void
      */
-    public function index($errors = NULL) {
-        var_dump($errors);
+    public function index() {
         $databases = App::getAPI()->getAllDatabases(); /* Stoke dans $databases la liste des bases de données MySQL */
         $this->render('BDDs.index', compact('databases', 'errors'));
     }
@@ -52,10 +51,7 @@ class BDDsController extends AppController {
      */
     public function deleteBDD($bdd) {
         $res = App::getAPI()->deleteBDD($bdd);
-        if($res['succes'])  
-            $this->index();
-        else 
-            $this->index(json_encode($res));
+        $this->index();
     }
 
 }

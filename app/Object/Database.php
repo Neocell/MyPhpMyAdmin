@@ -32,6 +32,18 @@ class Database
         }
         return $this->pdo;
     }
+
+    /**
+     * @param array $errors | Contient l'arraylist des erreurs.
+     * @return string $result | Affiche dans une alert l'erreur de la requete. 
+     */
+    public function print_error($errors) {
+        echo '<div class="alert alert-dismissible alert-danger">' .
+             '<strong>Code d\'erreur SQLSTATE : ' . $errors[0] . '</strong>' .
+             '<p>Code d\'erreur spécifique au driver : ' . $errors[1] . '</p>' .
+             '<p>Error : ' . $errors[2] . '</p>' .
+             '</div>';
+    }
     
     /**
      * @param string $statement Contient la query à exécuter.
@@ -39,7 +51,7 @@ class Database
      */
     public function query($statement) {
         try {
-            $req = $this->getPDO()->query($statement) or die (print_r($this->getPDO()->errorInfo()));
+            $req = $this->getPDO()->query($statement) or die ($this->print_error($this->getPDO()->errorInfo()));
             if(!$req)
                 $datas = [];
             else 
