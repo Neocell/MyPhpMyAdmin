@@ -57,8 +57,9 @@ use ARG\App;
         } else if ($p === 'bdd.add') {
             $controller = new BDDsController();
             $controller->addBDD($_POST['addDbName']);
-        } else if ($p === 'bdd.delete.json') {
-            echo $_GET['response'];
+        } else if ($p === 'bdd.rename') {
+            $controller = new BDDsController();
+            $controller->renameBDD($_POST['currentDbName'], $_POST['newDbName']);
         } else if ($p === 'bddshow') {                  
             $controller = new BDDsController();
             $controller->show($_GET['bdd']);
