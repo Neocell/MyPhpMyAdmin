@@ -40,7 +40,10 @@ class Database
     public function query($statement) {
         try {
             $req = $this->getPDO()->query($statement);
-            $datas = $req->fetchAll(PDO::FETCH_CLASS);
+            if(!$req)
+                $datas = [];
+            else 
+                $datas = $req->fetchAll(PDO::FETCH_CLASS);
             return $datas;
         } catch (PDOException $e) {
             throw $e;
