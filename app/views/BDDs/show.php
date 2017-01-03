@@ -2,7 +2,7 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading" >
-                <h3 class="panel-title"><strong><a href="index.php?p=bdd">Bases de données</a> > <?= $bdd ?></strong></h3>
+                <h3 class="panel-title"><strong><a href="/citrusrequest/bdd">Bases de données</a> > <?= $bdd ?></strong></h3>
             </div>
         </div>
     </div>
@@ -51,9 +51,9 @@
         {
 
             echo '<tr>';
-            echo '<td style="padding: 0px;"><a title="Acceder au contenu" style="padding: 8px; display: block;" href="index.php?p=tablecontent&bdd='.$bdd.'&table='.$table->Name.'">' . $table->Name . '</a></td>';
-            echo '<td class="text-center"><a style="color: black;" href="index.php?p=tablecontent&bdd='.$bdd.'&table='.$table->Name.'"><span title="Acceder au contenu" class="glyphicon glyphicon-list-alt"></span></a></td>';
-            echo '<td class="text-center"><a style="color: black;" href="index.php?p=tablestructure&bdd='.$bdd.'&table='.$table->Name.'"><span title="Acceder à la structure" class="glyphicon glyphicon-list"></span></a></td>';
+            echo '<td style="padding: 0px;"><a title="Acceder au contenu" style="padding: 8px; display: block;" href="/citrusrequest/table.content/'.$bdd.'/'.$table->Name.'">' . $table->Name . '</a></td>';
+            echo '<td class="text-center"><a style="color: black;" href="/citrusrequest/table.content/'.$bdd.'/'.$table->Name.'"><span title="Acceder au contenu" class="glyphicon glyphicon-list-alt"></span></a></td>';
+            echo '<td class="text-center"><a style="color: black;" href="/citrusrequest/table.structure/'.$bdd.'/'.$table->Name.'"><span title="Acceder à la structure" class="glyphicon glyphicon-list"></span></a></td>';
             echo '<td class="text-center"><span title="Renommage impossible" class="glyphicon glyphicon-pencil glypdisaled"></span></td>';
             echo '<td class="text-center"><span title="Suppression impossible" class="glyphicon glyphicon-trash glypdisaled"></span></td>';
             echo '<tr>';
@@ -64,9 +64,9 @@
         {
             echo '<tr><td title="Ajouter une table" colspan="5"  class="text-center"><span class="glyphicon glyphicon-plus"></td></tr>';
             echo '<tr>';
-            echo '<td style="padding: 0px;"><a title="Acceder au contenu" style="padding: 8px; display: block;" href="index.php?p=tablecontent&bdd='.$bdd.'&table='.$table->Name.'">' . $table->Name . '</a></td>';
-            echo '<td class="text-center"><a style="color: black;" href="index.php?p=tablecontent&bdd='.$bdd.'&table='.$table->Name.'"><span title="Acceder au contenu" class="glyphicon glyphicon-list-alt"></span></a></td>';
-            echo '<td class="text-center"><a style="color: black;" href="index.php?p=tablestructure&bdd='.$bdd.'&table='.$table->Name.'"><span title="Acceder à la structure" class="glyphicon glyphicon-list"></span></a></td>';
+            echo '<td style="padding: 0px;"><a title="Acceder au contenu" style="padding: 8px; display: block;" href="/citrusrequest/table.content/'.$bdd.'/'.$table->Name.'">' . $table->Name . '</a></td>';
+            echo '<td class="text-center"><a style="color: black;" href="/citrusrequest/table.content/'.$bdd.'/'.$table->Name.'"><span title="Acceder au contenu" class="glyphicon glyphicon-list-alt"></span></a></td>';
+            echo '<td class="text-center"><a style="color: black;" href="/citrusrequest/table.structure/'.$bdd.'/'.$table->Name.'"><span title="Acceder à la structure" class="glyphicon glyphicon-list"></span></a></td>';
             echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
             echo '<td class="text-center"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></td>';
             echo '<tr>';

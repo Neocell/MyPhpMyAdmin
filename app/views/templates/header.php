@@ -15,10 +15,10 @@
                     <a href="/citrusrequest/accueil">Accueil</a>
                 </li>
                 <li>
-                    <a href="bdd">Base de données</a>
+                    <a href="/citrusrequest/bdd">Base de données</a>
                 </li>
                 <li>
-                    <a href="sql">SQL</a>
+                    <a href="/citrusrequest/sql">SQL</a>
                 </li>
             </ul>
         </div><!--/.nav-collapse -->
