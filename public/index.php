@@ -5,13 +5,11 @@ header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0"); // dés
 header("Cache-Control: post-check=0, pre-check=0", false); // gestion du cache de IE
 header("Pragma: no-cache"); // gestion du cache de IE
 
-require '../configs/router.php';
-
 use ARG\Controller\BDDsController;
 use ARG\Controller\PagesController;
 use ARG\Controller\TableController;
 use ARG\App;
-use ARG\Router\Router;
+use Core\Router\Router;
 ?>
 <!DOCTYPE html>
 <html lang="fr">

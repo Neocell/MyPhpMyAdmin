@@ -1,6 +1,6 @@
 <?php
 
-namespace ARG\Router;
+namespace Core\Router;
 
 /**
  * Class Route
