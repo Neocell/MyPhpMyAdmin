@@ -17,9 +17,9 @@ use Core\Router\Router;
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>myPhpMyAdmin</title>
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/styles.css">
-        <script src="assets/js/jquery-3.1.1.min.js"></script>
+        <link rel="stylesheet" href="public/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="public/assets/css/styles.css">
+        <script src="public/assets/js/jquery-3.1.1.min.js"></script>
     </head>
     <body>
 
@@ -31,8 +31,11 @@ use Core\Router\Router;
         /* Import du header */
         require '../app/views/templates/header.php';
 
+
+        if ($_GET['p'] != "") { $p = $_GET['p'];  } else { $p = "accueil"; }
+
         /* Import du corps */
-        $router = new Router($_GET['p']); 
+        $router = new Router($p);
 
         $router->get('/accueil', function(){ 
             $controller = new PagesController();
@@ -74,8 +77,8 @@ use Core\Router\Router;
 
         ?>
 
-        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="public/assets/js/bootstrap.min.js"></script>
         <!-- Importation du script d'ouverture et fermeture d'un panel -->
-        <script src="assets/js/panelToggle.js"></script>
+        <script src="public/assets/js/panelToggle.js"></script>
     </body>
 </html>

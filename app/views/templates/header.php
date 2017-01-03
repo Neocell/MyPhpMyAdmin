@@ -11,31 +11,15 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <?php
-                
-                if ($p === 'accueil') {
-                     echo '<li class="active">';
-                } else {
-                    echo '<li>';
-                }
-                echo '<a href="/citrusrequest/accueil">Accueil</a></li>';
-                
-                if ($p === 'bdd') {
-                     echo '<li class="active">';
-                } else {
-                    echo '<li>';
-                }
-                echo '<a href="bdd">Base de données</a></li>';
-                
-                
-                if ($p === 'sql') {
-                     echo '<li class="active">';
-                } else {
-                    echo '<li>';
-                }
-                echo '<a href="sql">SQL</a></li>';
-                
-                ?>
+                <li>
+                    <a href="/citrusrequest/accueil">Accueil</a>
+                </li>
+                <li>
+                    <a href="bdd">Base de données</a>
+                </li>
+                <li>
+                    <a href="sql">SQL</a>
+                </li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
