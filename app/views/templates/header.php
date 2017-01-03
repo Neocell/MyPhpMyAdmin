@@ -12,13 +12,13 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="/citrusrequest/accueil">Accueil</a>
+                    <a href="index.php?p=accueil">Accueil</a>
                 </li>
                 <li>
-                    <a href="/citrusrequest/bdd">Base de données</a>
+                    <a href="index.php?p=bdd">Base de données</a>
                 </li>
                 <li>
-                    <a href="/citrusrequest/sql">SQL</a>
+                    <a href="index.php?p=sql">SQL</a>
                 </li>
             </ul>
         </div><!--/.nav-collapse -->

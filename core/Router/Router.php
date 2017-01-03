@@ -26,6 +26,10 @@ class Router
         $this->url = $url; 
     }
 
+    public function getRoutes() {
+        return $this->routes;
+    }
+
     /**
      * Function Get | Instancie du nouvelle route de type GET.
      * @param string $path | Variable contenant le chemin.

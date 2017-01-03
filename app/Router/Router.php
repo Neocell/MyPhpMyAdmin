@@ -7,7 +7,11 @@ use Core\Router\Router;
 
 /* Import du corps */
 
-if ($_GET['p'] != "") { $p = $_GET['p'];  } else { $p = "accueil"; }
+if (isset($_GET['p'])) { 
+    $p = $_GET['p'];  
+} else { 
+    $p = "accueil"; 
+}
 
 $router = new Router($p);
 
