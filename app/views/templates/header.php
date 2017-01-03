@@ -18,14 +18,14 @@
                 } else {
                     echo '<li>';
                 }
-                echo '<a href="index.php?p=accueil">Accueil</a></li>';
+                echo '<a href="/citrusrequest/accueil">Accueil</a></li>';
                 
                 if ($p === 'bdd') {
                      echo '<li class="active">';
                 } else {
                     echo '<li>';
                 }
-                echo '<a href="index.php?p=bdd">Base de données</a></li>';
+                echo '<a href="bdd">Base de données</a></li>';
                 
                 
                 if ($p === 'sql') {
@@ -33,7 +33,7 @@
                 } else {
                     echo '<li>';
                 }
-                echo '<a href="index.php?p=sql">SQL</a></li>';
+                echo '<a href="sql">SQL</a></li>';
                 
                 ?>
             </ul>
