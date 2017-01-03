@@ -51,18 +51,6 @@ class Router
     }
 
     /**
-     * Function Delete | Instancie du nouvelle route de type DELETE.
-     * @param string $path | Variable contenant le chemin.
-     * @param function $callable | Variable contenant une fonctions de rappel.
-     * @return void
-     */
-    public function delete($path, $callable) 
-    {
-        $route = new Route($path, $callable);
-        $this->routes['DELETE'][] = $route;
-    }
-
-    /**
      * @return void
      */
     public function run() 
