@@ -18,7 +18,7 @@
                     <table class="table table-bordered table-striped table-hover">
                         <tbody>
                             <tr>
-                                <td colspan="3" style="padding: 0px;"  class="text-center"><a style="padding: 8px;color:black; display: block;" data-toggle="modal" href="#myModalAdd"><span class="glyphicon glyphicon-plus"></a></td>
+                                <td colspan="3" style="padding: 0px;"  class="text-center"><a style="padding: 8px;color:black; display: block;" data-toggle="modal" href="#myModalAddBdd"><span class="glyphicon glyphicon-plus"></span></a></td>
                             </tr>
                             <?php
                             foreach($databases as $data)
@@ -34,8 +34,8 @@
                                 else {
                                     echo '<tr>';
                                     echo '<td style="padding: 0px;"><a title="Accéder à la base de donnée" style="padding: 8px; display: block;" href="index.php?p=bdd.show/'. $data->Database .'">' . $data->Database . '</a></td>';
-                                    echo '<td class="text-center"><a style="color:black;" onclick=\'renameBDD("'.$data->Database.'")\' data-toggle="modal" href="#myModalRename"><span title="Renommer la base de donnée" class="glyphicon glyphicon-pencil rename"></span></a></td>';
-                                    echo '<td class="text-center"><a style="color:black;" onclick=\'removeBDD("'.$data->Database.'")\' data-toggle="modal" href="#myModalRemove"><span title="Supprimer la base de donnée" class="glyphicon glyphicon-trash remove"></span></a></td>';
+                                    echo '<td class="text-center"><a style="color:black;" onclick=\'renameBDD("'.$data->Database.'")\' data-toggle="modal" href="#myModalRenameBdd"><span title="Renommer la base de donnée" class="glyphicon glyphicon-pencil rename"></span></a></td>';
+                                    echo '<td class="text-center"><a style="color:black;" onclick=\'removeBDD("'.$data->Database.'")\' data-toggle="modal" href="#myModalRemoveBdd"><span title="Supprimer la base de donnée" class="glyphicon glyphicon-trash remove"></span></a></td>';
                                     echo '<tr>';
                                 }
 

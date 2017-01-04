@@ -49,31 +49,63 @@
     {
         foreach($tables as $table)
         {
-
-            echo '<tr>';
-            echo '<td style="padding: 0px;"><a title="Acceder au contenu" style="padding: 8px; display: block;" href="index.php?p=table.content/'.$bdd.'/'.$table->Name.'">' . $table->Name . '</a></td>';
-            echo '<td class="text-center"><a style="color: black;" href="index.php?p=table.content/'.$bdd.'/'.$table->Name.'"><span title="Acceder au contenu" class="glyphicon glyphicon-list-alt"></span></a></td>';
-            echo '<td class="text-center"><a style="color: black;" href="index.php?p=table.structure/'.$bdd.'/'.$table->Name.'"><span title="Acceder à la structure" class="glyphicon glyphicon-list"></span></a></td>';
-            echo '<td class="text-center"><span title="Renommage impossible" class="glyphicon glyphicon-pencil glypdisaled"></span></td>';
-            echo '<td class="text-center"><span title="Suppression impossible" class="glyphicon glyphicon-trash glypdisaled"></span></td>';
-            echo '<tr>';
-        }
+                            ?>
+                            <tr>
+                                <td style="padding: 0px;">
+                                    <a title="Acceder au contenu" style="padding: 8px; display: block;" href="index.php?p=table.content/<?= $bdd ?>/<?= $table->Name ?>"><?= $table->Name ?></a></td>
+                                <td class="text-center">
+                                    <a style="color: black;" href="index.php?p=table.content/<?= $bdd ?>/<?= $table->Name ?>">
+                                        <span title="Acceder au contenu" class="glyphicon glyphicon-list-alt"></span>
+                                    </a>
+                                </td>
+                                <td class="text-center">
+                                    <a style="color: black;" href="index.php?p=table.structure/<?= $bdd ?>/<?= $table->Name ?>">
+                                        <span title="Acceder à la structure" class="glyphicon glyphicon-list"></span>
+                                    </a>
+                                </td>
+                                <td class="text-center">
+                                    <span title="Renommage impossible" class="glyphicon glyphicon-pencil glypdisaled"></span>
+                                </td>
+                                <td class="text-center">
+                                    <span title="Suppression impossible" class="glyphicon glyphicon-trash glypdisaled"></span>
+                                </td>
+                            <tr>
+                                <?php  }
 
     } else {
+        echo '<tr><td title="Ajouter une table" style="padding: 0px;" colspan="5" class="text-center"><a style="padding: 8px;color:black; display: block;" data-toggle="modal" href="#myModalAddTable"><span class="glyphicon glyphicon-plus"></span></a></td></tr>';
+        echo '<tr>';
         foreach($tables as $table)
         {
-            echo '<tr><td title="Ajouter une table" colspan="5"  class="text-center"><span class="glyphicon glyphicon-plus"></td></tr>';
-            echo '<tr>';
-            echo '<td style="padding: 0px;"><a title="Acceder au contenu" style="padding: 8px; display: block;" href="index.php?p=table.content/'.$bdd.'/'.$table->Name.'">' . $table->Name . '</a></td>';
-            echo '<td class="text-center"><a style="color: black;" href="/citrusrequest/table.content/'.$bdd.'/'.$table->Name.'"><span title="Acceder au contenu" class="glyphicon glyphicon-list-alt"></span></a></td>';
-            echo '<td class="text-center"><a style="color: black;" href="index.php?p=table.structure/'.$bdd.'/'.$table->Name.'"><span title="Acceder à la structure" class="glyphicon glyphicon-list"></span></a></td>';
-            echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
-            echo '<td class="text-center"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></td>';
-            echo '<tr>';
+                                ?>
+                                <td style="padding: 0px;">
+                                    <a title="Acceder au contenu" style="padding: 8px; display: block;" href="index.php?p=table.content/<?= $bdd ?>/<?= $table->Name ?>"><?= $table->Name ?> </a>
+                                </td>
+                                <td class="text-center">
+                                    <a style="color: black;" href="index.php?p=table.content/<?= $bdd ?>/<?= $table->Name ?>">
+                                        <span title="Acceder au contenu" class="glyphicon glyphicon-list-alt"></span>
+                                    </a>
+                                </td>
+                                <td class="text-center">
+                                    <a style="color: black;" href="index.php?p=table.structure/<?= $bdd ?>/<?= $table->Name ?>"><span title="Acceder à la structure" class="glyphicon glyphicon-list"></span>
+                                    </a>
+                                </td>
+                                <td class="text-center">
+                                    <a style="color:black;" onclick='renameTable("<?= $table->Name ?>")' data-toggle="modal" href="#myModalRenameTable">
+                                        <span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span>
+                                    </a>
+                                </td>
+                                <td class="text-center">
+                                    <a style="color:black;" onclick='removeTable("<?= $table->Name ?>")' data-toggle="modal" href="#myModalRemoveTable">
+                                        <span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span>
+                                    </a>
+                                </td>
+                            <tr>
+                                <?php
         }
     }
 
-                            ?>
+                                ?>
                         </tbody>
                     </table>
                 </div>
@@ -81,3 +113,12 @@
         </div>
     </div>
 </div>
+
+<!-- Modal rename bdd -->
+<?php require 'Modals/RenameTable.php'; ?>
+
+<!-- Modal remove bdd -->
+<?php require 'Modals/RemoveTable.php'; ?>
+
+<!-- Modal remove bdd -->
+<?php require 'Modals/AddTable.php'; ?>

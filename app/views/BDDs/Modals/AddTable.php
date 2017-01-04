@@ -1,17 +1,17 @@
-<div class="modal fade" id="myModalAddBdd">
+<div class="modal fade" id="myModalAddTable">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="index.php?p=bdd.add" method="post" id="formDatabaseAdd">
+            <form action="index.php?p=table.add" method="post" id="formTableAdd">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title">Création d'une base de donnée</h4>
+                    <h4 class="modal-title">Création d'une table</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Insérer le nom de la nouvelle base de donnée :</p>
+                    <p>Insérer le nom de la nouvelle table :</p>
                     <div class="form-group">
-                        <input type="text" style="width:100%;" name="addDbName" id="databaseAddNewInput">
+                        <input type="text" style="width:100%;" name="addTableName" id="TableAddNewInput">
                     </div>
                 </div>
                 <div class="modal-footer">
