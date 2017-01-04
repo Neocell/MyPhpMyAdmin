@@ -95,11 +95,30 @@ class BDDModel
     }
 
     /**
+     * @param string $bdd | Nom de la base de donnée
+     * @param string $table | Nom de la table à supprimer
+     * @return void
+     */
+    public static function deleteTable($table) {
+        App::getDB()->prepare('use '.self::$bdd.';');
+        App::getDB()->query("DROP TABLE " . $table . ";");
+    }
+
+    /**
      * @param string $bdd | Nom de la base de donnée à ajouter
      * @return void
      */
     public static function addBDD($bdd) {
         App::getDB()->query("CREATE DATABASE " . $bdd . ";");
+    }
+
+    /**
+     * @param string $table | Nom de la table a ajouter
+     * @return void
+     */
+    public static function addTable($table) {
+        App::getDB()->prepare('use '.self::$bdd.';');
+        App::getDB()->query("CREATE TABLE " . $table . " ( id INT PRIMARY KEY NOT NULL );");
     }
 
     /**

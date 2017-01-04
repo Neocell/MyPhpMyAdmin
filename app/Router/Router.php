@@ -37,6 +37,14 @@ $router->get('/table.structure/:bdd/:table', function($bdd, $table){
     $controller = new TableController();
     $controller->show($bdd, $table);
 });
+$router->post('/table.delete', function(){ 
+    $controller = new BDDsController();
+    $controller->deleteTable($_POST['dbName'], $_POST['tableName']);
+});
+$router->post('/table.add', function(){ 
+    $controller = new BDDsController();
+    $controller->addTable($_POST['dbName'], $_POST['addTableName']);
+});
 $router->get('/bdd', function(){ 
     $controller = new BDDsController();
     $controller->index();

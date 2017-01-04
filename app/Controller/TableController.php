@@ -12,7 +12,7 @@ use ARG\App;
 class TableController extends AppController {
 
     /**
-     * Function qui permet de rendre la vue Table/index.php
+     * Function qui permet de rendre la vue Table/index.php.
      * @return void
      */
     public function index($bdd, $table) {
@@ -23,7 +23,7 @@ class TableController extends AppController {
     }
 
     /**
-     * Function qui permet de rendre la vue Table/index.php
+     * Function qui permet de rendre la vue Table/show.php.
      * @return void
      */
     public function show($bdd, $table) {

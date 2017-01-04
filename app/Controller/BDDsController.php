@@ -25,7 +25,7 @@ class BDDsController extends AppController {
      * @param string $bdd | Nom de la base de donnée
      * @return void
      */
-    public function show($bdd, $errors = NULL) {
+    public function show($bdd) {
         App::getAPI()->useBDD($bdd);
         $nb_tables = App::getAPI()->countTables();
         $ms_tables = App::getAPI()->memorySpaceDatabase();
@@ -55,6 +55,18 @@ class BDDsController extends AppController {
     }
 
     /**
+     * Function qui permet de rendre la vue BDDs/show.php et qui ajoute une table.
+     * @param string $bdd | Nom de la base de donnée 
+     * @param string $table | Nom de la table
+     * @return void
+     */
+    public function addTable($bdd, $table) {
+        App::getAPI()->useBDD($bdd);
+        App::getAPI()->addTable($table);
+        $this->show($bdd);
+    }
+
+    /**
      * Function qui permet de rendre la vue BDDs/index.php et qui supprime une base de donnée
      * @param string $bdd | Nom de la base de donnée
      * @return void
@@ -62,6 +74,18 @@ class BDDsController extends AppController {
     public function deleteBDD($bdd) {
         $res = App::getAPI()->deleteBDD($bdd);
         $this->index();
+    }
+
+    /**
+     * Function qui permet de rendre la vue BDDs/show.php et qui supprime une table.
+     * @param string $bdd | Nom de la base de donnée 
+     * @param string $table | Nom de la table
+     * @return void
+     */
+    public function deleteTable($bdd, $table) {
+        App::getAPI()->useBDD($bdd);
+        App::getAPI()->deleteTable($table);
+        $this->show($bdd);
     }
 
 }
