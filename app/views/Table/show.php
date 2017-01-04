@@ -85,7 +85,10 @@
                     echo "<td>$value</td>";
             }
             echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
-            echo '<td class="text-center"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></td>';
+            echo '<td class="text-center"><a style="color:black;" onclick=\'removeColumn("'.$bdd.'","'.$table.'")\' data-toggle="modal" href="#myModalRemoveColumn"><span title="Supprimer la colonne" class="glyphicon glyphicon-trash remove"></span></a></td>';
+
+
+
 
             echo '<tr>';
         }
