@@ -12,7 +12,9 @@
                     <p>Voulez vous vraiment supprimer la colonne <strong id="columnRemove">{name}</strong></p>
                 </div>
                 <div>
-                    <input type="hidden" name="dbName" value="" id="columnRemoveInput">
+                    <input type="hidden" name="dbName" value="" id="databaseTableColumnRemoveInput">
+                    <input type="hidden" name="tableName" value="" id="CurrentTableColumnRemoveInput">
+                    <input type="hidden" name="columnName" value="" id="columnRemoveInput">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
@@ -27,9 +29,11 @@
 
 
 <script type="text/javascript">
-    function removeColumn(column) {
+    function removeColumn(bdd,table,column) {
         console.log(column);
         document.getElementById("columnRemove").innerHTML = column;
         document.getElementById("columnRemoveInput").value = column;
+        document.getElementById("CurrentTableColumnRemoveInput").value = table;
+        document.getElementById("databaseTableColumnRemoveInput").value = bdd;
     }
 </script>
