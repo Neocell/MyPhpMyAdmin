@@ -72,6 +72,7 @@
         }
     } else {
         echo '<tr><td title="Ajouter une ligne" colspan="10"  class="text-center"><span class="glyphicon glyphicon-plus"></td></tr>';
+//        var_dump($columns);
         foreach($columns as $column)
         {
             echo '<tr>';
@@ -104,4 +105,4 @@
 <?php require 'Modals/RemoveStructure.php'; ?>
 
 <!-- Modal remove bdd -->
-<?php //require 'Modals/AddContent.php'; ?>
+<?php require 'Modals/AddStructure.php'; ?>

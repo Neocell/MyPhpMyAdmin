@@ -1,7 +1,7 @@
 <div class="modal fade" id="myModalRenameTable">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="index.php?table.rename" method="post" id="formTableRename">
+            <form action="index.php?p=table.rename" method="post" id="formTableRename">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
