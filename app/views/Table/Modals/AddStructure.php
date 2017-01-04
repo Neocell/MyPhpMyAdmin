@@ -53,13 +53,6 @@
                             </select>
                         </div>
                     </div>
-
-                    <div class="form-group row">
-                        <label class="col-xs-2 col-form-label">Null</label>
-                        <div class="col-xs-10">
-                            <input class="form-check" type="checkbox" name="addColumnNull" value="true">
-                        </div>
-                    </div>
                     <div class="form-group row">
                         <label class="col-xs-2 col-form-label">Auto increment</label>
                         <div class="col-xs-10">
