@@ -2,6 +2,7 @@
 use ARG\Controller\BDDsController;
 use ARG\Controller\PagesController;
 use ARG\Controller\TableController;
+use ARG\Controller\SQLController;
 use ARG\App;
 use Core\Router\Router;
 
@@ -20,7 +21,13 @@ $router->get('/accueil', function(){
     $controller->index(); 
 }); 
 $router->get('/sql', function(){ 
-    require '../app/views/BDDs/sql.php';
+    $controller = new SQLController();
+    $controller->index();
+});
+$router->post('/sql', function(){ 
+    $controller = new SQLController();
+    $arr = array('database' => $_POST['dbSelected'], 'request' => $_POST['request']);
+    $controller->index($arr);
 });
 $router->get('/table.content/:bdd/:table', function($bdd, $table){ 
     $controller = new TableController();

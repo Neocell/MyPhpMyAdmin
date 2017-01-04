@@ -102,4 +102,17 @@ class BDDModel
         App::getDB()->query("CREATE DATABASE " . $bdd . ";");
     }
 
+    /**
+     * @param string $request | Requete a executer.
+     * @return void
+     */
+    public static function getSQLResult($array) {
+        if($array['database'] != 'all') {
+            self::useBDD($array['database']);
+            App::getDB()->prepare('use '.self::$bdd.';');
+        }
+        $result = App::getDB()->query($array['request']);
+        return $result;
+    }
+
 }
