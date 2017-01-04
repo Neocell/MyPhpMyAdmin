@@ -146,8 +146,6 @@ class BDDModel
         $query = "ALTER TABLE " . $table . " ADD " . $c_name . " " . $c_type . "(" . $c_size . ")";
         if($c_defaultValue === 'Null')
             $query .= ' NULL DEFAULT NULL';
-        else if($c_defaultValue === 'Aucune')
-            $query .= ' DEFAULT NOT NULL';
         if($c_index === 'PRIMARY')
             $query .= ', ADD PRIMARY KEY (`' . $c_name . '`)';
         $query .= ';';
