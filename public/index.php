@@ -12,9 +12,10 @@ use ARG\App;
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>myPhpMyAdmin</title>
-        <link rel="stylesheet" href="/citrusrequest/public/assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/citrusrequest/public/assets/css/styles.css">
-        <script src="/citrusrequest/public/assets/js/jquery-3.1.1.min.js"></script>
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/styles.css">
+        <script src="assets/js/jquery-3.1.1.min.js"></script>
     </head>
     <body>
 

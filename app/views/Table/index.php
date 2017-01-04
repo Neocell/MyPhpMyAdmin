@@ -46,6 +46,7 @@
     foreach($columns as $column){
         echo "<th><strong>".$column->Field."</strong></th>";
     }
+                    var_dump($columns);
                                 ?>
                                 <th colspan="2"></th>
                             </tr>
@@ -97,3 +98,12 @@
         </div>
     </div>
 </div>
+
+<!-- Modal rename bdd -->
+<?php //require 'Modals/RenameContent.php'; ?>
+
+<!-- Modal remove bdd -->
+<?php require 'Modals/RemoveContent.php'; ?>
+
+<!-- Modal remove bdd -->
+<?php //require 'Modals/AddContent.php'; ?>
