@@ -73,7 +73,7 @@
                                 <?php  }
 
     } else {
-        echo '<tr><td title="Ajouter une table" style="padding: 0px;" colspan="5" class="text-center"><a onclick=\'removeTable("'.$bdd .'")\' style="padding: 8px;color:black; display: block;" data-toggle="modal" href="#myModalAddTable"><span class="glyphicon glyphicon-plus"></span></a></td></tr>';
+        echo '<tr><td title="Ajouter une table" style="padding: 0px;" colspan="5" class="text-center"><a onclick=\'addTable("'.$bdd .'")\' style="padding: 8px;color:black; display: block;" data-toggle="modal" href="#myModalAddTable"><span class="glyphicon glyphicon-plus"></span></a></td></tr>';
         echo '<tr>';
         foreach($tables as $table)
         {
