@@ -87,6 +87,16 @@ class BDDModel
     }
 
     /**
+     * @param string $oldName | Encient nom de la table
+     * @param string $newName | Nouveau nom de la table
+     * @return void
+     */
+    public static function renameTable($oldName, $newName) {
+        App::getDB()->prepare('use '.self::$bdd.';');
+        App::getDB()->query("RENAME TABLE " . $oldName . " TO " . $newName . ";");
+    }
+
+    /**
      * @param string $bdd | Nom de la base de donnée à supprimer
      * @return void
      */

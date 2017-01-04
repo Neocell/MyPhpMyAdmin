@@ -45,6 +45,19 @@ class BDDsController extends AppController {
     }
 
     /**
+     * Function qui permet de rendre la vue BDDs/show.php et qui modifie le nom d'une table
+     * @param string $bdd | Nom de la base de donnée 
+     * @param string $oldName | Encient nom de la table
+     * @param string $newName | Nouveau nom de la table
+     * @return void
+     */
+    public function renameTable($bdd, $oldName, $newName) {
+        App::getAPI()->useBDD($bdd);
+        App::getAPI()->renameTable($oldName, $newName);
+        $this->show($bdd);
+    }
+
+    /**
      * Function qui permet de rendre la vue BDDs/index.php et qui ajoute une base de donnée
      * @param string $bdd | Nom de la base de donnée 
      * @return void

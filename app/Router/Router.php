@@ -45,6 +45,10 @@ $router->post('/table.add', function(){
     $controller = new BDDsController();
     $controller->addTable($_POST['dbName'], $_POST['addTableName']);
 });
+$router->post('/table.rename', function(){
+    $controller = new BDDsController();
+    $controller->renameTable($_POST['dbName'], $_POST['currentTableName'], $_POST['newTableName']);
+});
 $router->get('/bdd', function(){ 
     $controller = new BDDsController();
     $controller->index();
