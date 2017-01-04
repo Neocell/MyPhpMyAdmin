@@ -43,9 +43,9 @@ class TableController extends AppController {
      * @param string $table | Nom de la table
      * @return void
      */
-    public function addColumn($c_name, $c_type, $c_size, $c_defaultValue, $c_index, $bdd, $table) {
+    public function addColumn($c_name, $c_type, $c_size, $c_defaultValue, $c_index, $c_ai, $bdd, $table) {
         App::getAPI()->useBDD($bdd);
-        App::getAPI()->addColumn($c_name, $c_type, $c_size, $c_defaultValue, $c_index, $table);
+        App::getAPI()->addColumn($c_name, $c_type, $c_size, $c_defaultValue, $c_index, $c_ai, $table);
         $this->show($bdd, $table);
     }
 

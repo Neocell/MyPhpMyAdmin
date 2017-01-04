@@ -141,15 +141,16 @@ class BDDModel
      * @param string $table | Nom de la table
      * @return void
      */
-    public static function addColumn($c_name, $c_type, $c_size, $c_defaultValue, $c_index, $table) {
+    public static function addColumn($c_name, $c_type, $c_size, $c_defaultValue, $c_index, $c_ai, $table) {
         App::getDB()->prepare('use '.self::$bdd.';');
         $query = "ALTER TABLE " . $table . " ADD " . $c_name . " " . $c_type . "(" . $c_size . ")";
         if($c_defaultValue === 'Null')
             $query .= ' NULL DEFAULT NULL';
-        if($c_index === 'PRIMARY')
+        if($c_ai === 'true')
+            $query .= ' AUTO_INCREMENT, ADD PRIMARY KEY (`' . $c_name . '`)';
+        else if($c_index === 'PRIMARY')
             $query .= ', ADD PRIMARY KEY (`' . $c_name . '`)';
         $query .= ';';
-        var_dump($query);
         App::getDB()->query($query);
     }
 

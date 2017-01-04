@@ -67,6 +67,7 @@ $router->post('/column.add', function(){
         $_POST['addColumnSize'],
         $_POST['addColumnDefaultValue'],
         $_POST['addColumnIndex'],
+        $_POST['addColumnAI'],
         $_POST['dbName'],
         $_POST['tableName']
     );
