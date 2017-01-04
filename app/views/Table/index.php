@@ -60,12 +60,18 @@ foreach ($columns as $uneColumn)
                         <thead>
                             <tr>
                                 <?php
+    $colnum = 0;
     foreach($columns as $column){
+
         if ($column->Key == 'PRI')
-            echo "<th><strong>".$column->Field."<i style=\"color: #c6ad15; margin-left: 10px;\" class=\"fa fa-key\" aria-hidden=\"true\"></i></strong>
-</th>";
+        {
+            echo "<th><strong>".$column->Field."<i style=\"color: #c6ad15; margin-left: 10px;\" class=\"fa fa-key\" aria-hidden=\"true\"></i></strong></th>";
+            $lenom = $columns[$colnum]->Field;
+
+        }
         else
             echo "<th><strong>".$column->Field."</strong></th>";
+        $colnum += 1;
     }
                                 ?>
                                 <th colspan="2"></th>
@@ -76,6 +82,7 @@ foreach ($columns as $uneColumn)
                             <?php
                             if ($bdd == "information_schema" || $bdd == "performance_schema" || $bdd == "mysql" || $bdd == "sys")
                             {
+
                                 foreach($contents as $content)
                                 {
                                     echo '<tr>';
@@ -93,8 +100,10 @@ foreach ($columns as $uneColumn)
                             } else {
                                 $colspannbr =  count($columns)+2;
                                 echo '<tr><td style="padding: 0px;" title="Ajouter une ligne" colspan=" ' . $colspannbr . ' "  class="text-center"><span class="glyphicon glyphicon-plus" style="padding: 8px;color:black; display: block;"></td></tr>';
+
                                 foreach($contents as $content)
                                 {
+
                                     echo '<tr>';
                                     foreach($content as $key => $value)
                                     {
@@ -103,12 +112,13 @@ foreach ($columns as $uneColumn)
                                         else
                                             echo "<td>$value</td>";
                                     }
+
                                     if (!$edition) {
                                         echo '<td class="text-center"><span title="Renommage impossible" class="glyphicon glyphicon-pencil glypdisaled"></span></td>';
                                         echo '<td class="text-center"><span title="Suppression impossible" class="glyphicon glyphicon-trash glypdisaled"></span></td>';
                                     } else {
                                         echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
-                                        echo '<td class="text-center"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></td>';
+                                        echo '<td class="text-center"><a style="color:black;" onclick=\'removeContent("'.$bdd.'","'.$table.'","'.$content->$lenom.'")\' data-toggle="modal" href="#myModalRemoveContent"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></a></td>';
                                     }
 
 

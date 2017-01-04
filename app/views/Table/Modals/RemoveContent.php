@@ -1,18 +1,20 @@
-<div class="modal fade" id="myModalRemoveBdd">
+<div class="modal fade" id="myModalRemoveContent">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="index.php?p=bdd.delete" method="post" id="formDatabaseRemove">
+            <form action="#" method="post" id="formContentRemove">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title">Suppression d'une Base de donnée</h4>
+                    <h4 class="modal-title">Suppression d'une ligne</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Voulez vous vraiment supprimer la base de donnée <strong id="databaseRemove">{name}</strong></p>
+                    <p>Voulez vous vraiment supprimer la ligne avec la clé primaire <strong id="contentRemove">{name}</strong></p>
                 </div>
                 <div>
-                    <input type="hidden" name="dbName" value="" id="databaseRemoveInput">
+                    <input type="hidden" name="dbName" value="" id="databaseTableColumnRemoveInput">
+                    <input type="hidden" name="tableName" value="" id="CurrentTableColumnRemoveInput">
+                    <input type="hidden" name="contentName" value="" id="contentRemoveInput">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
@@ -27,9 +29,11 @@
 
 
 <script type="text/javascript">
-    function removeBDD(database) {
+    function removeContent(database,table,content) {
         console.log(database);
-        document.getElementById("databaseRemove").innerHTML = database;
-        document.getElementById("databaseRemoveInput").value = database;
+        document.getElementById("contentRemove").innerHTML = content;
+        document.getElementById("contentRemoveInput").value = content;
+        document.getElementById("databaseTableColumnRemoveInput").value = database;
+        document.getElementById("CurrentTableColumnRemoveInput").value = table;
     }
 </script>
