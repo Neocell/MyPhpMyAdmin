@@ -1,21 +1,18 @@
-<div class="modal fade" id="myModalAddTable">
+<div class="modal fade" id="myModalAddColumn">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="index.php?p=table.add" method="post" id="formTableAdd">
+            <form action="#" method="post" id="formColumnAdd">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title">Création d'une table</h4>
+                    <h4 class="modal-title">Création d'une colonne</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Insérer le nom de la nouvelle table :</p>
+                    <p>Insérer le nom de la nouvelle base de donnée :</p>
                     <div class="form-group">
-                        <input type="text" style="width:100%;" name="addTableName" id="TableAddNewInput">
+                        <input type="text" style="width:100%;" name="addColumnName" id="ColumnAddNewInput">
                     </div>
-                </div>
-                <div>
-                    <input type="hidden" name="dbName" value="" id="databaseTableAddInput">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
@@ -25,10 +22,3 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-    function addTable(bdd) {
-        console.log(bdd);
-        document.getElementById("databaseTableAddInput").value = bdd;
-    }
-</script>

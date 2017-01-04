@@ -44,7 +44,11 @@
                             <tr>
                                 <?php
     foreach($columns as $column){
-        echo "<th><strong>".$column->Field."</strong></th>";
+        if ($column->Key == 'PRI')
+            echo "<th><strong>".$column->Field."<i style=\"color: #c6ad15; margin-left: 10px;\" class=\"fa fa-key\" aria-hidden=\"true\"></i></strong>
+</th>";
+        else
+            echo "<th><strong>".$column->Field."</strong></th>";
     }
                     var_dump($columns);
                                 ?>

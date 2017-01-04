@@ -96,3 +96,12 @@
         </div>
     </div>
 </div>
+
+<!-- Modal rename bdd -->
+<?php //require 'Modals/RenameContent.php'; ?>
+
+<!-- Modal remove bdd -->
+<?php require 'Modals/RemoveStructure.php'; ?>
+
+<!-- Modal remove bdd -->
+<?php //require 'Modals/AddContent.php'; ?>

@@ -73,7 +73,7 @@
                                 <?php  }
 
     } else {
-        echo '<tr><td title="Ajouter une table" style="padding: 0px;" colspan="5" class="text-center"><a style="padding: 8px;color:black; display: block;" data-toggle="modal" href="#myModalAddTable"><span class="glyphicon glyphicon-plus"></span></a></td></tr>';
+        echo '<tr><td title="Ajouter une table" style="padding: 0px;" colspan="5" class="text-center"><a onclick=\'removeTable("'.$bdd .'","'.$table->Name .'")\' style="padding: 8px;color:black; display: block;" data-toggle="modal" href="#myModalAddTable"><span class="glyphicon glyphicon-plus"></span></a></td></tr>';
         echo '<tr>';
         foreach($tables as $table)
         {
@@ -91,12 +91,12 @@
                                     </a>
                                 </td>
                                 <td class="text-center">
-                                    <a style="color:black;" onclick='renameTable("<?= $table->Name ?>")' data-toggle="modal" href="#myModalRenameTable">
+                                    <a style="color:black;" onclick='renameTable("<?= $bdd ?>","<?= $table->Name ?>")' data-toggle="modal" href="#myModalRenameTable">
                                         <span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span>
                                     </a>
                                 </td>
                                 <td class="text-center">
-                                    <a style="color:black;" onclick='removeTable("<?= $table->Name ?>")' data-toggle="modal" href="#myModalRemoveTable">
+                                    <a style="color:black;" onclick='removeTable("<?= $bdd ?>","<?= $table->Name ?>")' data-toggle="modal" href="#myModalRemoveTable">
                                         <span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span>
                                     </a>
                                 </td>

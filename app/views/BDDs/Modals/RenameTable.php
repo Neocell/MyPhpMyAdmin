@@ -16,6 +16,7 @@
                 </div>
                 <div>
                     <input type="hidden" name="currentTableName" value="" id="CurrentTableRenameInput">
+                    <input type="hidden" name="dbName" value="" id="databaseTableRenameInput">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
@@ -28,9 +29,10 @@
 
 <script type="text/javascript">
 
-    function renameTable(table) {
+    function renameTable(bdd,table) {
         console.log(table);
         document.getElementById("tableRename").innerHTML = table;
         document.getElementById("CurrentTableRenameInput").value = table;
+        document.getElementById("databaseTableRenameInput").value = bdd;
     }
 </script>

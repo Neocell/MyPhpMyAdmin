@@ -1,19 +1,18 @@
-<div class="modal fade" id="myModalRemoveTable">
+<div class="modal fade" id="myModalRemoveColumn">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="index.php?p=table.delete" method="post" id="formTableRemove">
+            <form action="#" method="post" id="formColumnRemove">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title">Suppression d'une table</h4>
+                    <h4 class="modal-title">Suppression d'une Colonne</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Voulez vous vraiment supprimer la table <strong id="tableRemove">{name}</strong></p>
+                    <p>Voulez vous vraiment supprimer la colonne <strong id="columnRemove">{name}</strong></p>
                 </div>
                 <div>
-                    <input type="hidden" name="tableName" value="" id="tableRemoveInput">
-                    <input type="hidden" name="dbName" value="" id="databaseTableRemoveInput">
+                    <input type="hidden" name="dbName" value="" id="columnRemoveInput">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
@@ -28,10 +27,9 @@
 
 
 <script type="text/javascript">
-    function removeTable(bdd,table) {
-        console.log(table);
-        document.getElementById("tableRemove").innerHTML = table;
-        document.getElementById("tableRemoveInput").value = table;
-        document.getElementById("databaseTableRemoveInput").value = bdd;
+    function removeColumn(column) {
+        console.log(column);
+        document.getElementById("columnRemove").innerHTML = column;
+        document.getElementById("columnRemoveInput").value = column;
     }
 </script>
