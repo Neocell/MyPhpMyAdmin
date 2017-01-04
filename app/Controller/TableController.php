@@ -49,6 +49,19 @@ class TableController extends AppController {
         $this->show($bdd, $table);
     }
 
+    /**
+     * Function qui permet de rendre la vue Table/show.php et qui supprime une colone.
+     * @param string $bdd | Nom de la base de donnée
+     * @param string $table | Nom de la table
+     * @param string $column | Nom de la colone
+     * @return void
+     */
+    public function deleteColumn($bdd, $table, $column) {
+        App::getAPI()->useBDD($bdd);
+        App::getAPI()->deleteColumn($table, $column);
+        $this->show($bdd, $table);
+    }
+
 }
 
 ?>

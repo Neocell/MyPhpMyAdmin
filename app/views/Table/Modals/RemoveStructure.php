@@ -1,7 +1,7 @@
 <div class="modal fade" id="myModalRemoveColumn">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="#" method="post" id="formColumnRemove">
+            <form action="index.php?p=column.delete" method="post" id="formColumnRemove">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>

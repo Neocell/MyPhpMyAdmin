@@ -61,15 +61,27 @@ $router->post('/table.rename', function(){
 });
 $router->post('/column.add', function(){
     $controller = new TableController();
+    if(isset($_POST['addColumnAI']))
+        $c_ai = 'true';
+    else 
+        $c_ai = 'false';
     $controller->addColumn(
         $_POST['addColumnName'],
         $_POST['addColumnType'],
         $_POST['addColumnSize'],
         $_POST['addColumnDefaultValue'],
         $_POST['addColumnIndex'],
-        $_POST['addColumnAI'],
+        $c_ai,
         $_POST['dbName'],
         $_POST['tableName']
+    );
+});
+$router->post('/column.delete', function(){
+    $controller = new TableController();
+    $controller->deleteColumn(
+        $_POST['dbName'], 
+        $_POST['tableName'], 
+        $_POST['columnName']
     );
 });
 $router->get('/bdd', function(){ 

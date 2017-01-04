@@ -105,13 +105,22 @@ class BDDModel
     }
 
     /**
-     * @param string $bdd | Nom de la base de donnée
      * @param string $table | Nom de la table à supprimer
      * @return void
      */
     public static function deleteTable($table) {
         App::getDB()->prepare('use '.self::$bdd.';');
         App::getDB()->query("DROP TABLE " . $table . ";");
+    }
+
+    /**
+     * @param string $table | Nom de la table
+     * @param string $column | Nom de la colone à supprimer
+     * @return void
+     */
+    public static function deleteColumn($table, $column) {
+        App::getDB()->prepare('use '.self::$bdd.';');
+        App::getDB()->query("ALTER TABLE ".$table." DROP ".$column.";");
     }
 
     /**
