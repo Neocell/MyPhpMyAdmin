@@ -19,7 +19,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                    <button type="submit" class="btn btn-primary">Renommer</button>
+                    <button type="submit" title="pas terminé" disabled class="btn btn-primary">Renommer</button>
                 </div>
             </form>
         </div>

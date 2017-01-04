@@ -1,3 +1,15 @@
+<?php
+
+//Verifications de la présence d'une clé primaire pour editer une ligne
+$edition = false;
+foreach ($columns as $uneColumn)
+{
+    if ($uneColumn->Key == 'PRI')
+        $edition = true;
+}
+?>
+
+
 <div class="container">
     <div class="row">
         <div class="panel panel-default">
@@ -32,6 +44,11 @@
     </div>
 
     <div class="row">
+        <?php if(!$edition) { ?>
+        <div class="alert alert-warning">
+            <strong>Attention !</strong>  La sélection courante ne contient pas de colonne unique. Les liens d'édition et de suppression ne sont donc pas disponibles..
+        </div>
+        <?php } ?>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title" style="width:90%">Contenu de la table <strong><?= $table ?></strong></h3>
@@ -50,7 +67,6 @@
         else
             echo "<th><strong>".$column->Field."</strong></th>";
     }
-                    var_dump($columns);
                                 ?>
                                 <th colspan="2"></th>
                             </tr>
@@ -87,8 +103,14 @@
                                         else
                                             echo "<td>$value</td>";
                                     }
-                                    echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
-                                    echo '<td class="text-center"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></td>';
+                                    if (!$edition) {
+                                        echo '<td class="text-center"><span title="Renommage impossible" class="glyphicon glyphicon-pencil glypdisaled"></span></td>';
+                                        echo '<td class="text-center"><span title="Suppression impossible" class="glyphicon glyphicon-trash glypdisaled"></span></td>';
+                                    } else {
+                                        echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
+                                        echo '<td class="text-center"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></td>';
+                                    }
+
 
                                     echo '<tr>';
                                 }
