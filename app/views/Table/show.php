@@ -42,7 +42,7 @@
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>Field</th>
+                                <th>Nom</th>
                                 <th>Type</th>
                                 <th>Null</th>
                                 <th>Key</th>
@@ -71,8 +71,9 @@
             echo '<tr>';
         }
     } else {
-        echo '<tr><td title="Ajouter une ligne" colspan="10"  class="text-center"><span class="glyphicon glyphicon-plus"></td></tr>';
+        echo '<tr><td title="Ajouter une ligne" style="padding: 0px;" colspan="10"  class="text-center"><a onclick=\'addStructure("'.$bdd .'","'.$table .'")\' style="padding: 8px;color:black; display: block;" data-toggle="modal" href="#myModalAddColumn"><span class="glyphicon glyphicon-plus"></span></a></td></tr>';
 //        var_dump($columns);
+
         foreach($columns as $column)
         {
             echo '<tr>';
