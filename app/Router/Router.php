@@ -39,15 +39,37 @@ $router->get('/table.structure/:bdd/:table', function($bdd, $table){
 });
 $router->post('/table.delete', function(){ 
     $controller = new BDDsController();
-    $controller->deleteTable($_POST['dbName'], $_POST['tableName']);
+    $controller->deleteTable(
+        $_POST['dbName'], 
+        $_POST['tableName']
+    );
 });
 $router->post('/table.add', function(){ 
     $controller = new BDDsController();
-    $controller->addTable($_POST['dbName'], $_POST['addTableName']);
+    $controller->addTable(
+        $_POST['dbName'], 
+        $_POST['addTableName']
+    );
 });
 $router->post('/table.rename', function(){
     $controller = new BDDsController();
-    $controller->renameTable($_POST['dbName'], $_POST['currentTableName'], $_POST['newTableName']);
+    $controller->renameTable(
+        $_POST['dbName'], 
+        $_POST['currentTableName'], 
+        $_POST['newTableName']
+    );
+});
+$router->post('/column.add', function(){
+    $controller = new TableController();
+    $controller->addColumn(
+        $_POST['addColumnName'],
+        $_POST['addColumnType'],
+        $_POST['addColumnSize'],
+        $_POST['addColumnDefaultValue'],
+        $_POST['addColumnIndex'],
+        $_POST['dbName'],
+        $_POST['tableName']
+    );
 });
 $router->get('/bdd', function(){ 
     $controller = new BDDsController();

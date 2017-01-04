@@ -1,7 +1,7 @@
 <div class="modal fade" id="myModalAddColumn">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="#" method="post" id="formColumnAdd">
+            <form action="index.php?p=column.add" method="post" id="formColumnAdd">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -48,7 +48,7 @@
                         <label class="col-xs-2 col-form-label">Index</label>
                         <div class="col-xs-10">
                             <select class="form-control" name="addColumnIndex">
-                                <option></option>
+                                <option value="nothing"></option>
                                 <option>PRIMARY</option>
                             </select>
                         </div>

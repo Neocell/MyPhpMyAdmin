@@ -132,6 +132,30 @@ class BDDModel
     }
 
     /**
+     * @param string $c_name | Nom de la nouvelle colone 
+     * @param string $c_type | Type de la nouvelle colone 
+     * @param int $c_size | Taille de la nouvelle colone 
+     * @param string $c_defaultValue | Valeur par défault de la nouvelle colone 
+     * @param string $c_index | Type de l'index de la nouvelle colone 
+     * @param string $bdd | Nom de la base de donnée
+     * @param string $table | Nom de la table
+     * @return void
+     */
+    public static function addColumn($c_name, $c_type, $c_size, $c_defaultValue, $c_index, $table) {
+        App::getDB()->prepare('use '.self::$bdd.';');
+        $query = "ALTER TABLE " . $table . " ADD " . $c_name . " " . $c_type . "(" . $c_size . ")";
+        if($c_defaultValue === 'Null')
+            $query .= ' NULL DEFAULT NULL';
+        else if($c_defaultValue === 'Aucune')
+            $query .= ' DEFAULT NOT NULL';
+        if($c_index === 'PRIMARY')
+            $query .= ', ADD PRIMARY KEY (`' . $c_name . '`)';
+        $query .= ';';
+        var_dump($query);
+        App::getDB()->query($query);
+    }
+
+    /**
      * @param string $request | Requete a executer.
      * @return void
      */
