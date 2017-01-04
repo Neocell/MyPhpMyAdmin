@@ -62,6 +62,19 @@ class TableController extends AppController {
         $this->show($bdd, $table);
     }
 
+    /**
+     * Function qui permet de rendre la vue Table/index.php et qui supprime du contenu.
+     * @param string $bdd | Nom de la base de donnée
+     * @param string $table | Nom de la table
+     * @param string $id | Clef primaire du contenue à supprimer
+     * @return void
+     */
+    public function deleteContent($bdd, $table, $id) {
+        App::getAPI()->useBDD($bdd);
+        App::getAPI()->deleteContent($table, $id);
+        $this->index($bdd, $table);
+    }
+
 }
 
 ?>

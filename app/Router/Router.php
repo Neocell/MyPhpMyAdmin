@@ -33,6 +33,14 @@ $router->get('/table.content/:bdd/:table', function($bdd, $table){
     $controller = new TableController();
     $controller->index($bdd, $table);
 });
+$router->post('/content.delete', function(){
+    $controller = new TableController();
+    $controller->deleteContent(
+        $_POST['dbName'], 
+        $_POST['tableName'], 
+        $_POST['contentName']
+    );
+});
 $router->get('/table.structure/:bdd/:table', function($bdd, $table){ 
     $controller = new TableController();
     $controller->show($bdd, $table);

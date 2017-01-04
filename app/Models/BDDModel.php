@@ -124,6 +124,17 @@ class BDDModel
     }
 
     /**
+     * @param string $bdd | Nom de la base de donnée
+     * @param string $table | Nom de la table
+     * @param string $id | Clef primaire du contenue à supprimer
+     * @return void
+     */
+    public static function deleteContent($table, $id) {
+        App::getDB()->prepare('use '.self::$bdd.';');
+        App::getDB()->query("DELETE FROM ".$table." WHERE id=".$id.";");
+    }
+
+    /**
      * @param string $bdd | Nom de la base de donnée à ajouter
      * @return void
      */
