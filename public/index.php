@@ -34,8 +34,8 @@ use ARG\App;
 
         ?>
 
-        <script src="public/assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
         <!-- Importation du script d'ouverture et fermeture d'un panel -->
-        <script src="public/assets/js/panelToggle.js"></script>
+        <script src="assets/js/panelToggle.js"></script>
     </body>
 </html>

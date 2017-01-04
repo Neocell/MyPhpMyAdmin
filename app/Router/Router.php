@@ -38,17 +38,17 @@ $router->get('/bdd.show/:db', function($db){
     $controller = new BDDsController();
     $controller->show($db);
 });
-$router->post('/bdd.delete/:dbName', function($dbName){
+$router->post('/bdd.delete', function(){
     $controller = new BDDsController();
-    $controller->deleteBDD($dbName);
+    $controller->deleteBDD($_POST['dbName']);
 });
-$router->post('/bdd.add/:addDbName', function($addDbName){
+$router->post('/bdd.add', function(){
     $controller = new BDDsController();
-    $controller->addBDD($addDbName);
+    $controller->addBDD($_POST['addDbName']);
 });
 $router->post('/bdd.rename/:currentDbName/:newDbName', function($currentDbName, $newDbName){
     $controller = new BDDsController();
     $controller->renameBDD($currentDbName, $newDbName);
 });
 
-$router->run(); 
+$router->run();
