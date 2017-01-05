@@ -37,20 +37,13 @@
 
         function editContent(vare) {
 
-
-
-
-            var $inputs = $('#formContentEdit :input.form-control');//form-control
-
-            var i = 0;
+            var larow = $(vare).parent().parent().find(".unevaleur"),
+                $inputs = $('#formContentEdit :input.form-control'),
+                i = 0;
             $inputs.each(function() {
-                $(this).val($($(".unevaleur")[i]).text());
+                $(this).val($(larow[i]).text());
                 i++;
             });
-
-//            console.log(lesvaleurs);
-
-            console.log($inputs);
         }
         //
         //        $( "#formContentAdd" ).submit(function( event ) {
