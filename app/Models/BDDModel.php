@@ -221,7 +221,8 @@ class BDDModel
                 $values[] = $value;
             }
         }
-        App::getDB()->query("INSERT INTO ".$table." (" .implode(", ", $column). ") VALUES (".implode(", ", $values).");");
+        if(isset($column) && isset($value))
+            App::getDB()->query("INSERT INTO ".$table." (" .implode(", ", $column). ") VALUES (".implode(", ", $values).");");
     }
 
     /**
