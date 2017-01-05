@@ -110,7 +110,7 @@ foreach ($columns as $uneColumn)
                                         if ($value == null)
                                             echo "<td>null</td>";
                                         else
-                                            echo "<td>$value</td>";
+                                            echo "<td class=\"unevaleur\">$value</td>";
                                     }
 
                                     if (!$edition) {

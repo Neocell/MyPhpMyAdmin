@@ -9,7 +9,7 @@
                     <h4 class="modal-title">Edition d'une ligne dans la table</h4>
                 </div>
                 <div class="modal-body" id="formContentEditForm">
-                    <?php var_dump($columns); ?>
+                    <?php //var_dump($columns); ?>
                     <?php foreach($columns as $column) {
                     ?>
                     <div class="form-group row">
@@ -19,13 +19,10 @@
                             </div>
                             </div>
                         <?php } ?>
-
-
-
                     </div>
                     <div>
-                    <input type="hidden" name="dbName" value="<?= $bdd ?>">
-                    <input type="hidden" name="tableName" value="<?= $table ?>">
+                        <input type="hidden" name="dbName" value="<?= $bdd ?>">
+                        <input type="hidden" name="tableName" value="<?= $table ?>">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
@@ -39,13 +36,27 @@
     <script type="text/javascript">
 
         function editContent(vare) {
-            console.log($(vare).parent().parent().children());
+
+
+
+
+            var $inputs = $('#formContentEdit :input.form-control');//form-control
+
+            var i = 0;
+            $inputs.each(function() {
+                $(this).val($($(".unevaleur")[i]).text());
+                i++;
+            });
+
+//            console.log(lesvaleurs);
+
+            console.log($inputs);
         }
         //
-//        $( "#formContentAdd" ).submit(function( event ) {
-//            console.log(document.getElementById('inputAddContent'));
-//            event.preventDefault();
-//        });
+        //        $( "#formContentAdd" ).submit(function( event ) {
+        //            console.log(document.getElementById('inputAddContent'));
+        //            event.preventDefault();
+        //        });
 
 
     </script>

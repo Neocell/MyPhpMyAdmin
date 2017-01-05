@@ -34,7 +34,7 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title" style="width:90%">Contenu de la table <strong><?= $table ?></strong></h3>
+                <h3 class="panel-title" style="width:90%">Structure de la table <strong><?= $table ?></strong></h3>
                 <span class="pull-right clickable" style="margin-top: -20px"><i class="glyphicon glyphicon-chevron-up"></i></span>
             </div>
             <div class="panel-body">
@@ -72,7 +72,7 @@
         }
     } else {
         echo '<tr><td title="Ajouter une ligne" style="padding: 0px;" colspan="10"  class="text-center"><a onclick=\'addStructure("'.$bdd .'","'.$table .'")\' style="padding: 8px;color:black; display: block;" data-toggle="modal" href="#myModalAddColumn"><span class="glyphicon glyphicon-plus"></span></a></td></tr>';
-//        var_dump($columns);
+        //        var_dump($columns);
 
         foreach($columns as $column)
         {
@@ -81,6 +81,8 @@
             {
                 if ($value == null)
                     echo "<td>null</td>";
+                else if ($value == "PRI")
+                    echo "<td>Primary</td>";
                 else
                     echo "<td>$value</td>";
             }

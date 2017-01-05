@@ -19,10 +19,10 @@ class SQLController extends AppController
             $databases = App::getAPI()->getAllDatabases();
             App::getAPI()->useBDD($array['database']);
             $result = App::getAPI()->getSQLResult($array);
-            $this->render('BDDs.sql', compact('result', 'databases'));
+            $this->render('SQL.index', compact('result', 'databases'));
         } else {
             $databases = App::getAPI()->getAllDatabases();
-            $this->render('BDDs.sql', compact('databases'));
+            $this->render('SQL.index', compact('databases'));
         }
     }
 }
