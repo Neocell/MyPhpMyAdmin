@@ -25,12 +25,8 @@
     </div>
 </div>
 
-
-
-
 <script type="text/javascript">
     function removeColumn(bdd,table,column) {
-        console.log(column);
         document.getElementById("columnRemove").innerHTML = column;
         document.getElementById("columnRemoveInput").value = column;
         document.getElementById("CurrentTableColumnRemoveInput").value = table;

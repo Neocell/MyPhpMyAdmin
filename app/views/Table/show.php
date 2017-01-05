@@ -6,7 +6,6 @@
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading" >
@@ -30,7 +29,6 @@
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -72,7 +70,6 @@
         }
     } else {
         echo '<tr><td title="Ajouter une ligne" style="padding: 0px;" colspan="10"  class="text-center"><a onclick=\'addStructure("'.$bdd .'","'.$table .'")\' style="padding: 8px;color:black; display: block;" data-toggle="modal" href="#myModalAddColumn"><span class="glyphicon glyphicon-plus"></span></a></td></tr>';
-
         foreach($columns as $column)
         {
             echo '<tr>';
@@ -87,7 +84,6 @@
             }
             echo '<td class="text-center"><a onclick=\'editColumn(this)\' style="color:black;" data-toggle="modal" href="#myModalEditColumn"><span title="Editer la structure" class="glyphicon glyphicon-pencil rename"></span></a></td>';
             echo '<td class="text-center"><a style="color:black;" onclick=\'removeColumn("'.$bdd.'","'.$table.'","'.$column->Field.'")\' data-toggle="modal" href="#myModalRemoveColumn"><span title="Supprimer la colonne" class="glyphicon glyphicon-trash remove"></span></a></td>';
-            
             echo '<tr>';
         }
     }

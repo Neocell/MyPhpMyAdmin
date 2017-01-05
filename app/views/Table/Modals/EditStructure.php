@@ -75,27 +75,17 @@
 </div>
 
 <script type="text/javascript">
-
     function editColumn(vare) {
-
-
-
-
-        var lidcurrent = $($(vare).parent().parent().find(".unevaleur")).text();
-
-        var larow = $(vare).parent().parent().find(".unevaleur");
-
-        var test = new Array;
+        var lidcurrent = $($(vare).parent().parent().find(".unevaleur")).text(),
+            larow = $(vare).parent().parent().find(".unevaleur"),
+            test = new Array;
         larow.each(function() {
             test.push($(this).text());
         });
-
         var tailleType = test[1].split("(");
         var type = tailleType[0];
         var taille = parseInt(tailleType[1].split(")")[0]);
         test.splice(1, 1, type, taille);
-
-
         var $inputcheck = $('#formStructureEdit :input.form-check');
         var $inputs = $('#formStructureEdit :input.form-control');
         $("#idCurrentName").val(test[0]);
@@ -116,7 +106,5 @@
             $inputcheck.prop( "checked", true );
         else
             $inputcheck.prop( "checked", false );
-
     }
-
 </script>

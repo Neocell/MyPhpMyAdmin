@@ -18,9 +18,6 @@
                             </div>
                             </div>
                         <?php } ?>
-
-
-
                     </div>
                     <div>
                         <input type="hidden" name="dbName" value="<?= $bdd ?>">

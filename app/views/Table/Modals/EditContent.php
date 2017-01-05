@@ -9,7 +9,6 @@
                     <h4 class="modal-title">Edition d'une ligne dans la table</h4>
                 </div>
                 <div class="modal-body" id="formContentEditForm">
-                    <?php //var_dump($columns); ?>
                     <?php foreach($columns as $column) {
                     ?>
                     <div class="form-group row">
@@ -36,16 +35,12 @@
     </div>
 
     <script type="text/javascript">
-
         function editContent(vare) {
-
             var idCurrentNamePosition = parseInt(<?= $lemplacement ?>);
             console.log(idCurrentNamePosition);
             console.log("test" + $($(vare).parent().parent().find(".unevaleur")[idCurrentNamePosition]).text());
-
             var lidcurrent = $($(vare).parent().parent().find(".unevaleur")[idCurrentNamePosition]).text();
             $('#idCurrentValue').val(lidcurrent);
-
             var larow = $(vare).parent().parent().find(".unevaleur"),
                 $inputs = $('#formContentEdit :input.form-control'),
                 i = 0;
@@ -54,11 +49,4 @@
                 i++;
             });
         }
-        //
-        //        $( "#formContentAdd" ).submit(function( event ) {
-        //            console.log(document.getElementById('inputAddContent'));
-        //            event.preventDefault();
-        //        });
-
-
     </script>

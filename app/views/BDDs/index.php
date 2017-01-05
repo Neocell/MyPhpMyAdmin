@@ -6,7 +6,6 @@
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -38,7 +37,6 @@
                                     echo '<td class="text-center"><a style="color:black;" onclick=\'removeBDD("'.$data->Database.'")\' data-toggle="modal" href="#myModalRemoveBdd"><span title="Supprimer la base de donnée" class="glyphicon glyphicon-trash remove"></span></a></td>';
                                     echo '<tr>';
                                 }
-
                             }
                             ?>
                         </tbody>
