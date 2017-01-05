@@ -15,7 +15,7 @@
                     <div class="form-group row">
                         <label class="col-xs-2 col-form-label"><strong><?php echo $column->Field . "</strong> ".$column->Type; ?></label>
                             <div class="col-xs-10">
-                                <input class="form-control" type="text" name="">
+                                <input class="form-control" type="text" name="<?= $column->Field?>">
                             </div>
                             </div>
                         <?php } ?>

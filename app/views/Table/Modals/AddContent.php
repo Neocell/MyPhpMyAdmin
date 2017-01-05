@@ -9,7 +9,6 @@
                     <h4 class="modal-title">Insertion d'une ligne dans la table</h4>
                 </div>
                 <div class="modal-body" id="formContentAddForm">
-                    <?php var_dump($columns); ?>
                     <?php foreach($columns as $column) {
                     ?>
                     <div class="form-group row">
