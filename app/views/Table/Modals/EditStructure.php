@@ -62,7 +62,7 @@
                 </div>
                 <div>
                     <input type="hidden" name="dbName" value="<?= $bdd ?>">
-                    <input type="hidden" name="columnName" id="idCurrentValue">
+                    <input type="hidden" name="columnName" id="idCurrentName">
                     <input type="hidden" name="tableName" value="<?= $table ?>">
                 </div>
                 <div class="modal-footer">
@@ -77,6 +77,9 @@
 <script type="text/javascript">
 
     function editColumn(vare) {
+
+
+
 
         var lidcurrent = $($(vare).parent().parent().find(".unevaleur")).text();
 
@@ -95,7 +98,7 @@
 
         var $inputcheck = $('#formStructureEdit :input.form-check');
         var $inputs = $('#formStructureEdit :input.form-control');
-
+        $("#idCurrentName").val(test[0]);
         $($inputs[0]).val(test[0]);
         $($inputs[1]).val(test[1].toUpperCase());
         $($inputs[2]).val(test[2]);
