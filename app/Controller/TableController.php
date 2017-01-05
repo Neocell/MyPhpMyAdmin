@@ -71,7 +71,7 @@ class TableController extends AppController {
 
     /**
      * Function qui permet de rendre la vue Table/index.php et qui modifie un contenu a la table.
-     * @param array $array | Contient les champs de la table
+     * @param array $datas | Contient les champs de la table
      * @return void
      */
     public function modifContent($datas) {
@@ -87,6 +87,27 @@ class TableController extends AppController {
         App::getAPI()->useBDD($config['dbName']);
         App::getAPI()->modifContent($config, $datas);
         $this->index($config['dbName'], $config['tableName']);
+    }
+
+    /**
+     * Function qui permet de rendre la vue Table/show.php et qui modifie la structure d'une colone.
+     * @param array $config | Contient les configuration pour la modification
+     * @param array $datas | Contient les données à modifié
+     * @return void
+     */
+    public function modifColumn($datas) {
+        $elements = array('dbName', 'tableName', 'columnName');
+        foreach($elements as $element) {
+            foreach($datas as $key => $val) {
+                if($element === $key){
+                    $config[$key] = $datas[$key];
+                    unset($datas[$key]);
+                }
+            }
+        }
+        App::getAPI()->useBDD($config['dbName']);
+        App::getAPI()->modifColumn($config, $datas);
+        $this->show($config['dbName'], $config['tableName']);
     }
 
     /**

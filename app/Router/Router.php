@@ -100,6 +100,10 @@ $router->post('/column.delete', function(){
         $_POST['columnName']
     );
 });
+$router->post('/column.edit', function(){
+    $controller = new TableController();
+    $controller->modifColumn($_POST);
+});
 $router->get('/bdd', function(){ 
     $controller = new BDDsController();
     $controller->index();

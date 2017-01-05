@@ -97,6 +97,15 @@ class BDDModel
     }
 
     /**
+     * @param string $oldName | Encient nom de la table
+     * @return void
+     */
+    public static function renameStructure() {
+        App::getDB()->prepare('use '.self::$bdd.';');
+        App::getDB()->query("RENAME TABLE " . $oldName . " TO " . $newName . ";");
+    }
+
+    /**
      * @param array $config | Contient les configuration de l'ajout
      * @param array $datas | Contient les datas à ajouter 
      * @return void
@@ -122,6 +131,35 @@ class BDDModel
                 }
             }
             $query .= " WHERE `".$config['tableName']."`.`".$config['idCurrentName']."` = ".$config['idCurrentValue'].";";
+            App::getDB()->query($query);
+        }
+    }
+
+    /**
+     * @param array $config | Contient les configuration pour la modification
+     * @param array $datas | Contient les données à modifié
+     * @return void
+     */
+    public static function modifColumn($config, $datas) {
+        if($datas['EditColumnName'] !== '') {
+            App::getDB()->prepare('use '.self::$bdd.';');
+            $query = "ALTER TABLE ".$config['tableName'];
+            $query .= " CHANGE `".$config['columnName']."` ";
+            $query .= "`".$datas['EditColumnName']."` ".$datas['EditColumnType'];
+            if($datas['EditColumnSize'] !== '') 
+                $query .= "(".$datas['EditColumnSize'].") ";
+            else 
+                $query .= "(10) ";
+            if($datas['EditColumnDefaultValue'] === 'Null')
+                $query .= "NULL DEFAULT NULL";
+            else 
+                $query .= "NULL";
+            if(isset($datas['EditColumnAI']))
+                $query .= " AUTO_INCREMENT";
+            $query .= ";";
+            if(isset($datas['EditColumnIndex']) && $datas['EditColumnIndex'] === 'PRIMARY') {
+                App::getDB()->query("ALTER TABLE `".$config['tableName']."` ADD PRIMARY KEY(`".$config['columnName']."`);");
+            }
             App::getDB()->query($query);
         }
     }

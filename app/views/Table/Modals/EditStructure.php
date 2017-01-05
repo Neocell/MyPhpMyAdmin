@@ -1,7 +1,7 @@
 <div class="modal fade" id="myModalEditColumn">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="index.php?p=structure.modif" method="post" id="formStructureEdit">
+            <form action="index.php?p=column.edit" method="post" id="formStructureEdit">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -18,7 +18,7 @@
                     <div class="form-group row">
                         <label class="col-xs-2 col-form-label">Type</label>
                         <div class="col-xs-10">
-                            <select name="addColumnType" class="form-control">
+                            <select name="EditColumnType" class="form-control">
                                 <option title="Un nombre entier de 4 octets. La fourchette des entiers relatifs est de -2 147 483 648 à 2 147 483 647. Pour les entiers positifs, c'est de 0 à 4 294 967 295">INT</option>
                                 <option title="Une chaîne de longueur variable (0-65,535), la longueur effective réelle dépend de la taille maximum d'une ligne">VARCHAR</option>
                                 <option title="Une colonne TEXT d'une longueur maximum de 65 535 (2^16 - 1) caractères, stockée avec un préfixe de deux octets indiquant la longueur de la valeur en octets 	">TEXT</option>
@@ -30,7 +30,7 @@
                     <div class="form-group row">
                         <label class="col-xs-2 col-form-label">Taille</label>
                         <div class="col-xs-10">
-                            <input type="number" class="form-control" name="addColumnSize" id="ColumnEditNewInput">
+                            <input type="number" class="form-control" name="EditColumnSize" id="ColumnEditNewInput">
                         </div>
                     </div>
 
