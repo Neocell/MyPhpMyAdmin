@@ -22,7 +22,8 @@
                     </div>
                     <div>
                         <input type="hidden" name="dbName" value="<?= $bdd ?>">
-                        <input type="hidden" name="idCurrent" value="<?= $lenom ?>">
+                        <input type="hidden" name="idCurrentName" value="<?= $lenom ?>">
+                        <input type="hidden" name="idCurrentValue" id="idCurrentValue">
                         <input type="hidden" name="tableName" value="<?= $table ?>">
                     </div>
                     <div class="modal-footer">
@@ -37,6 +38,10 @@
     <script type="text/javascript">
 
         function editContent(vare) {
+
+            var idCurrentNamePosition = <?= $colnum ?>-1;
+            var lidcurrent = $($(vare).parent().parent().find(".unevaleur")[idCurrentNamePosition]).text();
+            $('#idCurrentValue').val(lidcurrent);
 
             var larow = $(vare).parent().parent().find(".unevaleur"),
                 $inputs = $('#formContentEdit :input.form-control'),
