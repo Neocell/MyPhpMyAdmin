@@ -102,26 +102,28 @@ class BDDModel
      * @return void
      */
     public static function modifContent($config, $datas) {
-        App::getDB()->prepare('use '.self::$bdd.';');
-        $query = "UPDATE ".$config['tableName']." SET ";
         foreach($datas as $key => $value) {
             if($value !== '') {
                 $arrayDiff[$key] = $value;
             }
         }
-        end($arrayDiff);
-        $lastKey = key($arrayDiff);
-        foreach($datas as $key => $value) {
-            if($value !== '') {
-                $query .= "`" .$key . "` = ";
-                $query .= "'" .$value . "'";
-                if($key !== $lastKey){
-                    $query .= " ,";
+        if(isset($arrayDiff)){
+            App::getDB()->prepare('use '.self::$bdd.';');
+            $query = "UPDATE ".$config['tableName']." SET ";
+            end($arrayDiff);
+            $lastKey = key($arrayDiff);
+            foreach($datas as $key => $value) {
+                if($value !== '') {
+                    $query .= "`" .$key . "` = ";
+                    $query .= "'" .$value . "'";
+                    if($key !== $lastKey){
+                        $query .= " ,";
+                    }
                 }
             }
+            $query .= " WHERE `".$config['tableName']."`.`".$config['idCurrentName']."` = ".$config['idCurrentValue'].";";
+            App::getDB()->query($query);
         }
-        $query .= " WHERE `".$config['tableName']."`.`".$config['idCurrentName']."` = ".$config['idCurrentValue'].";";
-        App::getDB()->query($query);
     }
 
     /**
