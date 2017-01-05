@@ -1,7 +1,7 @@
 <div class="modal fade" id="myModalAddContent">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="#" method="post" id="formContentAdd">
+            <form action="index.php?p=table.content.add" method="post" id="formContentAdd">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>

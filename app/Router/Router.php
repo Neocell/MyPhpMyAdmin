@@ -33,6 +33,10 @@ $router->get('/table.content/:bdd/:table', function($bdd, $table){
     $controller = new TableController();
     $controller->index($bdd, $table);
 });
+$router->post('/table.content.add', function(){
+    $controller = new TableController();
+    $controller->addContent($_POST);
+});
 $router->post('/content.delete', function(){
     $controller = new TableController();
     $controller->deleteContent(

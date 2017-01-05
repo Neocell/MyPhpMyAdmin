@@ -50,6 +50,26 @@ class TableController extends AppController {
     }
 
     /**
+     * Function qui permet de rendre la vue Table/index.php et qui ajoute un contenu a la table.
+     * @param array $array | Contient les champs de la table
+     * @return void
+     */
+    public function addContent($datas) {
+        $elements = array('dbName', 'tableName');
+        foreach($elements as $element) {
+            foreach($datas as $key => $val) {
+                if($element === $key){
+                    $config[$key] = $datas[$key];
+                    unset($datas[$key]);
+                }
+            }
+        }
+        App::getAPI()->useBDD($config['dbName']);
+        App::getAPI()->addContent($config['tableName'], $datas);
+        $this->index($config['dbName'], $config['tableName']);
+    }
+
+    /**
      * Function qui permet de rendre la vue Table/show.php et qui supprime une colone.
      * @param string $bdd | Nom de la base de donnée
      * @param string $table | Nom de la table

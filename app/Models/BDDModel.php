@@ -175,6 +175,22 @@ class BDDModel
     }
 
     /**
+     * @param string $table | Nom de la table a ajouter
+     * @param array $datas | Contient les datas à ajouter 
+     * @return void
+     */
+    public static function addContent($table, $datas) {
+        App::getDB()->prepare('use '.self::$bdd.';');
+        foreach($datas as $key => $value) {
+            if($value !== '') {
+                $column[] = $key;
+                $values[] = $value;
+            }
+        }
+        App::getDB()->query("INSERT INTO ".$table." (" .implode(", ", $column). ") VALUES (".implode(", ", $values).");");
+    }
+
+    /**
      * @param string $request | Requete a executer.
      * @return void
      */
