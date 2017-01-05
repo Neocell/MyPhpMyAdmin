@@ -8,8 +8,6 @@ foreach ($columns as $uneColumn)
         $edition = true;
 }
 ?>
-
-
 <div class="container">
     <div class="row">
         <div class="panel panel-default">
@@ -18,7 +16,6 @@ foreach ($columns as $uneColumn)
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading" >
@@ -42,7 +39,6 @@ foreach ($columns as $uneColumn)
             </div>
         </div>
     </div>
-
     <div class="row">
         <?php if(!$edition) { ?>
         <div class="alert alert-warning">
@@ -58,11 +54,10 @@ foreach ($columns as $uneColumn)
                 <div class="table-responsive">
                     <table class="table table-bordered  table-striped table-hover">
                         <thead>
-                            <tr >
+                            <tr>
                                 <?php
     $colnum = 0;
     foreach($columns as $column){
-
         if ($column->Key == 'PRI')
         {
             echo "<th><strong class=\"uneColonne\">".$column->Field."</strong><i style=\"color: #c6ad15; margin-left: 10px;\" class=\"fa fa-key\" aria-hidden=\"true\"></i></th>";
@@ -78,11 +73,9 @@ foreach ($columns as $uneColumn)
                             </tr>
                         </thead>
                         <tbody>
-
                             <?php
                             if ($bdd == "information_schema" || $bdd == "performance_schema" || $bdd == "mysql" || $bdd == "sys")
                             {
-
                                 foreach($contents as $content)
                                 {
                                     echo '<tr>';
@@ -100,10 +93,8 @@ foreach ($columns as $uneColumn)
                             } else {
                                 $colspannbr =  count($columns)+2;
                                 echo '<tr><td style="padding: 0px;" title="Ajouter une ligne" colspan=" ' . $colspannbr . ' "  class="text-center"><a  data-toggle="modal" href="#myModalAddContent"><span class="glyphicon glyphicon-plus" style="padding: 8px;color:black; display: block;"></span></a></td></tr>';
-
                                 foreach($contents as $content)
                                 {
-
                                     echo '<tr>';
                                     foreach($content as $key => $value)
                                     {
@@ -112,7 +103,6 @@ foreach ($columns as $uneColumn)
                                         else
                                             echo "<td class=\"unevaleur\">$value</td>";
                                     }
-
                                     if (!$edition || count($contents) == 1) {
                                         echo '<td class="text-center"><span title="Renommage impossible" class="glyphicon glyphicon-pencil glypdisaled"></span></td>';
                                         echo '<td class="text-center"><span title="Suppression impossible" class="glyphicon glyphicon-trash glypdisaled"></span></td>';
@@ -120,12 +110,9 @@ foreach ($columns as $uneColumn)
                                         echo '<td class="text-center"><a style="color:black;" data-toggle="modal" href="#myModalEditContent" onclick=\'editContent(this)\'><span title="Editer la ligne" class="glyphicon glyphicon-pencil rename"></span></a></td>';
                                         echo '<td class="text-center"><a style="color:black;" onclick=\'removeContent("'.$bdd.'","'.$table.'","'.$content->$lenom.'")\' data-toggle="modal" href="#myModalRemoveContent"><span title="Supprimer la ligne" class="glyphicon glyphicon-trash remove"></span></a></td>';
                                     }
-
-
                                     echo '<tr>';
                                 }
                             }
-
                             ?>
                         </tbody>
                     </table>

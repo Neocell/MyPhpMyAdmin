@@ -6,7 +6,6 @@
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading" >
@@ -32,7 +31,6 @@
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -44,7 +42,6 @@
                     <table class="table table-bordered table-striped table-hover">
                         <tbody>
                             <?php
-
     if ($bdd == "information_schema" || $bdd == "performance_schema" || $bdd == "mysql" || $bdd == "sys")
     {
         foreach($tables as $table)

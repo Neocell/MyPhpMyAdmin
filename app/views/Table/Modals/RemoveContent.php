@@ -25,12 +25,8 @@
     </div>
 </div>
 
-
-
-
 <script type="text/javascript">
     function removeContent(database,table,content) {
-        console.log(database);
         document.getElementById("contentRemove").innerHTML = content;
         document.getElementById("contentRemoveInput").value = content;
         document.getElementById("databaseTableColumnRemoveInput").value = database;

@@ -74,7 +74,6 @@
 </div>
 
 <script type="text/javascript">
-
     function addStructure(bdd,table) {
         document.getElementById("CurrentTableColumnAddInput").value = table;
         document.getElementById("databaseTableColumnAddInput").value = bdd;
