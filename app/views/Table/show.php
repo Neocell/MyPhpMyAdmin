@@ -80,16 +80,16 @@
             foreach($column as $key => $value)
             {
                 if ($value == null)
-                    echo "<td>null</td>";
+                    echo "<td class=\"unevaleur\">null</td>";
                 else if ($value == "PRI")
-                    echo "<td>Primary</td>";
+                    echo "<td class=\"unevaleur\">Primary</td>";
                 else
-                    echo "<td>$value</td>";
+                    echo "<td class=\"unevaleur\">$value</td>";
             }
-            echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
+            echo '<td class="text-center"><a onclick=\'editColumn(this)\' style="color:black;" data-toggle="modal" href="#myModalEditColumn"><span title="Editer la structure" class="glyphicon glyphicon-pencil rename"></span></a></td>';
             echo '<td class="text-center"><a style="color:black;" onclick=\'removeColumn("'.$bdd.'","'.$table.'","'.$column->Field.'")\' data-toggle="modal" href="#myModalRemoveColumn"><span title="Supprimer la colonne" class="glyphicon glyphicon-trash remove"></span></a></td>';
 
-
+            var_dump($column);
 
 
             echo '<tr>';
@@ -104,11 +104,11 @@
     </div>
 </div>
 
-<!-- Modal rename bdd -->
-<?php //require 'Modals/RenameContent.php'; ?>
+<!-- Modal edit structure -->
+<?php require 'Modals/EditStructure.php'; ?>
 
-<!-- Modal remove bdd -->
+<!-- Modal remove structure -->
 <?php require 'Modals/RemoveStructure.php'; ?>
 
-<!-- Modal remove bdd -->
+<!-- Modal remove structure -->
 <?php require 'Modals/AddStructure.php'; ?>
