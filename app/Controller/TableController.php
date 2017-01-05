@@ -19,7 +19,8 @@ class TableController extends AppController {
         App::getAPI()->useBDD($bdd);
         $contents = App::getAPI()->getAllContentTable($table);
         $columns = App::getAPI()->getAllColumnTable($table);
-        $this->render('table.index', compact('bdd','table','contents','columns'));
+        $date = App::getAPI()->getDateTable($table);
+        $this->render('table.index', compact('bdd','table','contents','columns', 'date'));
     }
 
     /**
@@ -29,7 +30,8 @@ class TableController extends AppController {
     public function show($bdd, $table) {
         App::getAPI()->useBDD($bdd);
         $columns = App::getAPI()->getAllColumnTable($table);
-        $this->render('table.show', compact('bdd','table','columns'));
+        $date = App::getAPI()->getDateTable($table);
+        $this->render('table.show', compact('bdd','table','columns', 'date'));
     }
 
     /**

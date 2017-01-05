@@ -33,6 +33,17 @@ class BDDModel
     }
 
     /**
+     * @return date $date | Contient toute les base de données 
+     */
+    public static function getDateTable($table) {
+        App::getDB()->prepare('use '.self::$bdd.';');
+        $date = App::getDB()->query("SHOW TABLE STATUS WHERE name = '".$table."'");
+        $dateFormat = new \DateTime($date[0]->Create_time);
+        $result = date_format($dateFormat, "d/m/Y H:i:s");
+        return $result;
+    }
+
+    /**
      * @return int $nb_tables | Nombre de tables
      */
     public static function countTables() {

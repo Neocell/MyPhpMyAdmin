@@ -24,7 +24,7 @@
                     <tbody>
                         <tr class="text-center">
                             <td><?= count($columns); ?></td>
-                            <td>2</td>
+                            <td><?= $date ?></td>
                         </tr>
                 </table>
             </div>

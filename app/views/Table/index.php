@@ -36,7 +36,7 @@ foreach ($columns as $uneColumn)
                     <tbody>
                         <tr class="text-center">
                             <td><?= count($contents);?></td>
-                            <td>2</td>
+                            <td><?= $date ?></td>
                         </tr>
                 </table>
             </div>
