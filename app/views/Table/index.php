@@ -58,19 +58,19 @@ foreach ($columns as $uneColumn)
                 <div class="table-responsive">
                     <table class="table table-bordered  table-striped table-hover">
                         <thead>
-                            <tr>
+                            <tr >
                                 <?php
     $colnum = 0;
     foreach($columns as $column){
 
         if ($column->Key == 'PRI')
         {
-            echo "<th><strong>".$column->Field."<i style=\"color: #c6ad15; margin-left: 10px;\" class=\"fa fa-key\" aria-hidden=\"true\"></i></strong></th>";
+            echo "<th><strong class=\"uneColonne\">".$column->Field."</strong><i style=\"color: #c6ad15; margin-left: 10px;\" class=\"fa fa-key\" aria-hidden=\"true\"></i></th>";
             $lenom = $columns[$colnum]->Field;
 
         }
         else
-            echo "<th><strong>".$column->Field."</strong></th>";
+            echo "<th><strong class=\"uneColonne\">".$column->Field."</strong></th>";
         $colnum += 1;
     }
                                 ?>
@@ -99,7 +99,7 @@ foreach ($columns as $uneColumn)
                                 }
                             } else {
                                 $colspannbr =  count($columns)+2;
-                                echo '<tr><td style="padding: 0px;" title="Ajouter une ligne" colspan=" ' . $colspannbr . ' "  class="text-center"><span class="glyphicon glyphicon-plus" style="padding: 8px;color:black; display: block;"></td></tr>';
+                                echo '<tr><td style="padding: 0px;" title="Ajouter une ligne" colspan=" ' . $colspannbr . ' "  class="text-center"><a data-toggle="modal" href="#myModalAddContent"><span class="glyphicon glyphicon-plus" style="padding: 8px;color:black; display: block;"></span></a></td></tr>';
 
                                 foreach($contents as $content)
                                 {
@@ -117,8 +117,8 @@ foreach ($columns as $uneColumn)
                                         echo '<td class="text-center"><span title="Renommage impossible" class="glyphicon glyphicon-pencil glypdisaled"></span></td>';
                                         echo '<td class="text-center"><span title="Suppression impossible" class="glyphicon glyphicon-trash glypdisaled"></span></td>';
                                     } else {
-                                        echo '<td class="text-center"><span title="Renommer la table" class="glyphicon glyphicon-pencil rename"></span></td>';
-                                        echo '<td class="text-center"><a style="color:black;" onclick=\'removeContent("'.$bdd.'","'.$table.'","'.$content->$lenom.'")\' data-toggle="modal" href="#myModalRemoveContent"><span title="Supprimer la table" class="glyphicon glyphicon-trash remove"></span></a></td>';
+                                        echo '<td class="text-center"><a style="color:black;" data-toggle="modal" href="#myModalEditContent" onclick=\'editContent(this)\'><span title="Editer la ligne" class="glyphicon glyphicon-pencil rename"></span></a></td>';
+                                        echo '<td class="text-center"><a style="color:black;" onclick=\'removeContent("'.$bdd.'","'.$table.'","'.$content->$lenom.'")\' data-toggle="modal" href="#myModalRemoveContent"><span title="Supprimer la ligne" class="glyphicon glyphicon-trash remove"></span></a></td>';
                                     }
 
 
@@ -136,10 +136,10 @@ foreach ($columns as $uneColumn)
 </div>
 
 <!-- Modal rename bdd -->
-<?php //require 'Modals/RenameContent.php'; ?>
+<?php require 'Modals/EditContent.php'; ?>
 
 <!-- Modal remove bdd -->
 <?php require 'Modals/RemoveContent.php'; ?>
 
 <!-- Modal remove bdd -->
-<?php //require 'Modals/AddContent.php'; ?>
+<?php require 'Modals/AddContent.php'; ?>

@@ -1,21 +1,21 @@
-<div class="modal fade" id="myModalAddContent">
+<div class="modal fade" id="myModalEditContent">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="#" method="post" id="formContentAdd">
+            <form action="#" method="post" id="formContentEdit">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title">Insertion d'une ligne dans la table</h4>
+                    <h4 class="modal-title">Edition d'une ligne dans la table</h4>
                 </div>
-                <div class="modal-body" id="formContentAddForm">
+                <div class="modal-body" id="formContentEditForm">
                     <?php var_dump($columns); ?>
                     <?php foreach($columns as $column) {
                     ?>
                     <div class="form-group row">
                         <label class="col-xs-2 col-form-label"><strong><?php echo $column->Field . "</strong> ".$column->Type; ?></label>
                             <div class="col-xs-10">
-                                <input class="form-control" type="" name="<?= $column->Field?>">
+                                <input class="form-control" type="text" name="">
                             </div>
                             </div>
                         <?php } ?>
@@ -24,7 +24,7 @@
 
                     </div>
                     <div>
-                        <input type="hidden" name="inputAddContent" id="inputAddContent">
+                    <input type="hidden" name="inputEditContent" id="inputEditContent">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
@@ -34,3 +34,17 @@
                 </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+
+        function editContent(vare) {
+            console.log($(vare).parent().parent().children());
+        }
+        //
+//        $( "#formContentAdd" ).submit(function( event ) {
+//            console.log(document.getElementById('inputAddContent'));
+//            event.preventDefault();
+//        });
+
+
+    </script>
