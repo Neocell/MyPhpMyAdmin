@@ -1,7 +1,7 @@
 <div class="modal fade" id="myModalEditContent">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="index.php?content.modif" method="post" id="formContentEdit">
+            <form action="index.php?p=content.modif" method="post" id="formContentEdit">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>

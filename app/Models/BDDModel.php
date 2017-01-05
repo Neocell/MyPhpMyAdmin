@@ -97,6 +97,26 @@ class BDDModel
     }
 
     /**
+     * @param string $table | Nom de la table a ajouter
+     * @param array $datas | Contient les datas à ajouter 
+     * @return void
+     */
+    public static function modifContent($table, $datas) {
+        die($datas);
+        App::getDB()->prepare('use '.self::$bdd.';');
+        $query = "UPDATE ".$table." SET ";
+        foreach($datas as $key => $value) {
+            if($value !== '') {
+                $query .= $key . " = ";
+                $query .= $value . ", ";
+            }
+        }
+        $query .= " WHERE ".$table.".id = ".$datas['id'].";";
+        die($query);
+        App::getDB()->query($query);
+    }
+
+    /**
      * @param string $bdd | Nom de la base de donnée à supprimer
      * @return void
      */

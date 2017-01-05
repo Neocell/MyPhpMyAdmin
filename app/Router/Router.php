@@ -37,6 +37,11 @@ $router->post('/table.content.add', function(){
     $controller = new TableController();
     $controller->addContent($_POST);
 });
+$router->post('/content.modif', function(){
+    $controller = new TableController();
+    die($_POST);
+    $controller->deleteContent($_POST);
+});
 $router->post('/content.delete', function(){
     $controller = new TableController();
     $controller->deleteContent(
