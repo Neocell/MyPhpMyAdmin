@@ -99,7 +99,7 @@ foreach ($columns as $uneColumn)
                                 }
                             } else {
                                 $colspannbr =  count($columns)+2;
-                                echo '<tr><td style="padding: 0px;" title="Ajouter une ligne" colspan=" ' . $colspannbr . ' "  class="text-center"><a data-toggle="modal" href="#myModalAddContent"><span class="glyphicon glyphicon-plus" style="padding: 8px;color:black; display: block;"></span></a></td></tr>';
+                                echo '<tr><td style="padding: 0px;" title="Ajouter une ligne" colspan=" ' . $colspannbr . ' "  class="text-center"><a  data-toggle="modal" href="#myModalAddContent"><span class="glyphicon glyphicon-plus" style="padding: 8px;color:black; display: block;"></span></a></td></tr>';
 
                                 foreach($contents as $content)
                                 {
@@ -113,7 +113,7 @@ foreach ($columns as $uneColumn)
                                             echo "<td class=\"unevaleur\">$value</td>";
                                     }
 
-                                    if (!$edition) {
+                                    if (!$edition || count($contents) == 1) {
                                         echo '<td class="text-center"><span title="Renommage impossible" class="glyphicon glyphicon-pencil glypdisaled"></span></td>';
                                         echo '<td class="text-center"><span title="Suppression impossible" class="glyphicon glyphicon-trash glypdisaled"></span></td>';
                                     } else {
