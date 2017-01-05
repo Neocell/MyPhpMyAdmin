@@ -67,7 +67,7 @@ foreach ($columns as $uneColumn)
         {
             echo "<th><strong class=\"uneColonne\">".$column->Field."</strong><i style=\"color: #c6ad15; margin-left: 10px;\" class=\"fa fa-key\" aria-hidden=\"true\"></i></th>";
             $lenom = $columns[$colnum]->Field;
-
+            $lemplacement = $colnum;
         }
         else
             echo "<th><strong class=\"uneColonne\">".$column->Field."</strong></th>";

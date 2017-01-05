@@ -39,7 +39,10 @@
 
         function editContent(vare) {
 
-            var idCurrentNamePosition = <?= $colnum ?>-1;
+            var idCurrentNamePosition = parseInt(<?= $lemplacement ?>);
+            console.log(idCurrentNamePosition);
+            console.log("test" + $($(vare).parent().parent().find(".unevaleur")[idCurrentNamePosition]).text());
+
             var lidcurrent = $($(vare).parent().parent().find(".unevaleur")[idCurrentNamePosition]).text();
             $('#idCurrentValue').val(lidcurrent);
 
