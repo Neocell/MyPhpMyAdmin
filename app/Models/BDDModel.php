@@ -37,7 +37,8 @@ class BDDModel
      */
     public static function getDateTable($table) {
         App::getDB()->prepare('use '.self::$bdd.';');
-        $date = App::getDB()->query("SHOW TABLE STATUS WHERE name = '".$table."'");
+        $date = App::getDB()->query("SELECT MIN(create_time) as Create_time FROM INFORMATION_SCHEMA.TABLES
+                                    WHERE table_name = '".$table."'");
         $dateFormat = new \DateTime($date[0]->Create_time);
         $result = date_format($dateFormat, "d/m/Y H:i:s");
         return $result;
