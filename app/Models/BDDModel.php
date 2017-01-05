@@ -163,7 +163,13 @@ class BDDModel
      */
     public static function addColumn($c_name, $c_type, $c_size, $c_defaultValue, $c_index, $c_ai, $table) {
         App::getDB()->prepare('use '.self::$bdd.';');
-        $query = "ALTER TABLE " . $table . " ADD " . $c_name . " " . $c_type . "(" . $c_size . ")";
+        $query = "ALTER TABLE " . $table . " ADD " . $c_name . " " . $c_type;
+        if($c_type === 'VARCHAR' && $c_size === ''){
+            $query .= "(10)";
+        } 
+        if($c_size !== ''){
+            $query .= "(" . $c_size . ")";
+        }
         if($c_defaultValue === 'Null')
             $query .= ' NULL DEFAULT NULL';
         if($c_ai === 'true')
