@@ -24,7 +24,8 @@
 
                     </div>
                     <div>
-                    <input type="hidden" name="inputEditContent" id="inputEditContent">
+                    <input type="hidden" name="dbName" value="<?= $bdd ?>">
+                    <input type="hidden" name="tableName" value="<?= $table ?>">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
