@@ -55,7 +55,7 @@ class TableController extends AppController {
      * @return void
      */
     public function addContent($datas) {
-        $elements = array('dbName', 'tableName');
+        $elements = array('dbName', 'tableName', 'idCurrentName', 'idCurrentValue');
         foreach($elements as $element) {
             foreach($datas as $key => $val) {
                 if($element === $key){
@@ -66,6 +66,26 @@ class TableController extends AppController {
         }
         App::getAPI()->useBDD($config['dbName']);
         App::getAPI()->addContent($config['tableName'], $datas);
+        $this->index($config['dbName'], $config['tableName']);
+    }
+
+    /**
+     * Function qui permet de rendre la vue Table/index.php et qui modifie un contenu a la table.
+     * @param array $array | Contient les champs de la table
+     * @return void
+     */
+    public function modifContent($datas) {
+        $elements = array('dbName', 'tableName', 'idCurrentName', 'idCurrentValue');
+        foreach($elements as $element) {
+            foreach($datas as $key => $val) {
+                if($element === $key){
+                    $config[$key] = $datas[$key];
+                    unset($datas[$key]);
+                }
+            }
+        }
+        App::getAPI()->useBDD($config['dbName']);
+        App::getAPI()->modifContent($config, $datas);
         $this->index($config['dbName'], $config['tableName']);
     }
 

@@ -97,22 +97,30 @@ class BDDModel
     }
 
     /**
-     * @param string $table | Nom de la table a ajouter
+     * @param array $config | Contient les configuration de l'ajout
      * @param array $datas | Contient les datas à ajouter 
      * @return void
      */
-    public static function modifContent($table, $datas) {
-        die($datas);
+    public static function modifContent($config, $datas) {
         App::getDB()->prepare('use '.self::$bdd.';');
-        $query = "UPDATE ".$table." SET ";
+        $query = "UPDATE ".$config['tableName']." SET ";
         foreach($datas as $key => $value) {
             if($value !== '') {
-                $query .= $key . " = ";
-                $query .= $value . ", ";
+                $arrayDiff[$key] = $value;
             }
         }
-        $query .= " WHERE ".$table.".id = ".$datas['id'].";";
-        die($query);
+        end($arrayDiff);
+        $lastKey = key($arrayDiff);
+        foreach($datas as $key => $value) {
+            if($value !== '') {
+                $query .= "`" .$key . "` = ";
+                $query .= "'" .$value . "'";
+                if($key !== $lastKey){
+                    $query .= " ,";
+                }
+            }
+        }
+        $query .= " WHERE `".$config['tableName']."`.`".$config['idCurrentName']."` = ".$config['idCurrentValue'].";";
         App::getDB()->query($query);
     }
 
