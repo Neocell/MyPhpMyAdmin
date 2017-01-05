@@ -26,7 +26,7 @@
                         <tr class="text-center">
                             <td><?= $nb_tables[0]->nbr_Table ?></td>
                             <td>2</td>
-                            <td>~ <?= $ms_tables[0]->em ?></td>
+                            <td>~ <?php if(isset($ms_tables[0])) { echo $ms_tables[0]->em; } else { echo 0; }?></td>
                         </tr>
                 </table>
             </div>
