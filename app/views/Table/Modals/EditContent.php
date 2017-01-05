@@ -22,6 +22,7 @@
                     </div>
                     <div>
                         <input type="hidden" name="dbName" value="<?= $bdd ?>">
+                        <input type="hidden" name="idCurrent" value="<?= $lenom ?>">
                         <input type="hidden" name="tableName" value="<?= $table ?>">
                     </div>
                     <div class="modal-footer">
