@@ -17,6 +17,14 @@ class PagesController extends AppController {
         $this->render('Pages.accueil');
     }
 
+    /**
+     * Function qui permet de rendre la vue 404.php
+     * @return void
+     */
+    public function notFound() {
+        $this->render('Pages.404');
+    }
+
 }
  
 ?>

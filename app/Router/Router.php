@@ -20,6 +20,10 @@ $router->get('/accueil', function(){
     $controller = new PagesController();
     $controller->index(); 
 }); 
+$router->get('/not_found', function(){ 
+    $controller = new PagesController();
+    $controller->notFound(); 
+}); 
 $router->get('/sql', function(){ 
     $controller = new SQLController();
     $controller->index();
