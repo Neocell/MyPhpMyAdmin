@@ -21,7 +21,7 @@ class Database
     private function getPDO() {
         if ($this->pdo === NULL) {
             try {
-                $dbh = new PDO('mysql:host=localhost;', "root", "");   
+                $dbh = new PDO('mysql:host=database;', "root", "root_password");   
                 // $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
                 $this->pdo = $dbh; 
                 return $dbh;

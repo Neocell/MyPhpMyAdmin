@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  web_server:
+    image: php:5.6-apache
+    ports:
+      - 8080:80
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - database
+    links:
+      - database
+  
+  database:
+    image: mysql:latest
+    expose:
+      - 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: test
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user_password
